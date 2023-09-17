@@ -1,9 +1,16 @@
-<?php
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="author" content="Shansong Huang" />
+    <meta name="description" content="TLDR Login Page" />
+    <link rel = "stylesheet", type="text/css", href="styles/login.css">
+    <title>Login</title>
+  </head>
+  <body>
+  <?php
     require_once "inc/dbconn.inc.php";
 
     // Add your code here
-    $existUser = false;
-    $existPassword = false;
     
     $username = $_POST["userName"];
     $password = $_POST["userPassword"];
@@ -16,14 +23,12 @@
     {
         if(mysqli_num_rows($result) > 0)//user found
         {
-            $existUser = true;
             $sql = "SELECT * FROM User where email = '".$username."' and password = '".$password."'";
             $result = mysqli_query($conn, $sql);
             if($result)
             {
                 if(mysqli_num_rows($result) > 0)//user and password match
                 {
-                    $existPassword = true;
                     $row = mysqli_fetch_assoc($result);
                     $style = $row['style'];
                     switch($style)
@@ -41,8 +46,7 @@
                 }
                 else
                 {
-                    $existPassword = false;
-                    echo "The password incorrect!<br>The page will be return after 3 seconds.";
+                    echo "<a id = 'error'>The password incorrect!<br>The page will be return after 3 seconds.</error>";
                     header("Refresh:3; login.html");
                 }
             }
@@ -60,8 +64,7 @@
         }
         else
         {
-            $existUser = false;
-            echo "The user is not Found!<br>The page will be return after 3 seconds.";
+            echo "<a id = 'error'>The user is not Found!<br>The page will be return after 3 seconds.</a>";
             header("Refresh:3; login.html");
         }
     }
@@ -69,3 +72,6 @@
     mysqli_close($conn);
 
 ?>
+
+  </body>
+</html>

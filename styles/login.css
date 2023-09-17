@@ -41,10 +41,10 @@ label {
     display: inline-block;
 }
 
-error{
+#error{
     color: red;
-    font-size:small;
-    visibility:hidden;
+    font-size:large;
+    /*visibility:hidden;*/
 }
 
 
