@@ -2,8 +2,7 @@
 function init()
 {
     const cancelButton = document.getElementById("submitCancel");
-    cancelButton.addEventListener("click", cancel);
-    foo(true);
+    cancelButton.addEventListener("click", cancel);    
 }
 
 function cancel(Event)
