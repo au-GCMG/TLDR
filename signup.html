@@ -1,0 +1,63 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="author" content="Shansong Huang" />
+    <meta name="description" content="TLDR signup Page" />
+    <link rel = "stylesheet", type="text/css", href="styles/signup.css">
+    <script src = "scripts/cancel.js" defer></script>
+    <script src = "scripts/valid.js" defer></script>
+    <title>Sign up</title>
+  </head>
+  <body id = "contactBody">
+    <div id = "content">
+      <h1>Welcome TLDR system</h1>
+      <h2>Create a new account!</h2><br>
+      <div id = "form">
+            <form id = contactForm>
+                <label>Firstname*:</label><div><input type="text" class = "user" name="userName" required placeholder="Required" ></div><br>
+                <label>Surname*:</label><div><input type="text" class = "user" name="userName" required placeholder="Required" ></div><br>
+                <label>Password*:</label><div><input type="password" class = "user" name="userPassword" id = "passwordT" required placeholder="Required" ></div><br>
+                <label>Re-Password*:</label><div><input type="password" class = "user" name="userPassword" id = "repasswordT" required placeholder="Required"  onchange="passwordValidate()"></div><br>        
+                <label>Gender*:</label>
+                <div>
+                    <select name="gender" class = "user" id="gender" required>
+                        <option value="M" selected>M</option>
+                        <option value="F">F</option>
+                        <option value="X">X</option>
+                    </select>                    
+                </div><br>
+                <label>DOB*:</label><div><input type="date" class = "user" required placeholder="Required"></div><br>
+                <label>Address*:</label><div><input type="text" class = "user" required placeholder="Required"></div><br>
+                <label>Suburb*:</label><div><input type="text" class = "user" required placeholder="Required"></div><br>
+                <label>State*:</label>
+                    <div>
+                        <select name="state" class = "user" id="state" required>
+                            <option value="NSW">NSW</option>
+                            <option value="VIC">VIC</option>
+                            <option value="SA" selected>SA</option>
+                            <option value="NT">NT</option>
+                            <option value="WA">WA</option>
+                            <option value="CBR">CBR</option>
+                        </select>                    
+                    </div><br>
+                <label>Post*:</label><div><input type="text" class = "user" required placeholder="Required"></div><br>
+                <label>Telephone:</label><div><input type="tel" class = "user"></div><br>
+                <label>Mobile:</label><div><input type="tel" class = "user"></div><br>
+                <label>Driver's Licence*:</label><div><input type="tel" class = "user" required placeholder="Required"></div><br>
+                <label>Style*:</label>
+                    <div>
+                        <select name="state" class = "user" id="style" required>
+                            <option value="Student" selected>Student</option>
+                            <option value="QSD">QSD</option>
+                        </select>
+                    </div>
+                <br><br>
+                <div>
+                    <input type = "submit" name = "userSubmit" id = "submitSave" value="Save">
+                    <input type = "button" name = "userCancel" id = "submitCancel" value="Cancel">                
+                </div><br>        
+            </form>
+      </div>
+    </div>
+  </body>
+</html> 

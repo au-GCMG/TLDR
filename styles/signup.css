@@ -1,0 +1,92 @@
+html {    
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    color: #263238;
+}
+
+h1 {    
+    margin-bottom: 0px;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 36px;
+    font-weight: bold;
+    color: #000;
+    text-align: center;
+}
+
+h2{
+    position: relative;
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;    
+    color: #ffa703;
+}
+
+
+label {
+    font-size: 14px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;  
+}
+
+#content{
+    position:relative
+}
+
+#form{   
+    position:absolute;
+    left: 35%;
+}
+
+#contactForm {
+    margin-left: 10px;
+    margin-top: 20px;    
+    position: relative;   
+    display: inline-block;
+}
+
+.user{
+    width: 500px;
+    border:1px solid #d4dadc;
+    margin-top: 3px;
+    margin-bottom: 3px;
+    margin-left: 0px;
+    margin-right: 0px;
+    padding: 6px;
+}
+.user :focus{
+    border-color: #263238;
+    outline: none;
+}
+
+#submitSave {
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #fff;
+    border-style: none;
+    background-color: #1565c0;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+#submitSave:hover {
+    background-color: #0d47a1;
+}
+
+#submitCancel {
+    font-weight: bold;
+    text-transform: uppercase;
+    color: black;
+    border-style: none;
+    background-color: #fae104;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+#submitCancel:hover {
+    background-color: #ffa703;
+}

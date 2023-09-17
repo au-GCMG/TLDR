@@ -1,0 +1,25 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="author" content="Shansong Huang" />
+    <meta name="description" content="TLDR Login Page" />
+    <link rel = "stylesheet", type="text/css", href="styles/login.css">
+    <title>Login</title>
+  </head>
+  <body id = "contactBody">
+    <div id = "content">
+      <h1>Welcome TLDR system</h1>
+      <h2>Safer, smarter drivers</h2><br><br>      
+        <form id = contactForm action="login.php" method="post">
+            <label>Username: <input type="text" class = "user" name="userName" id = "nameT" required placeholder="Required" ></label><br> 
+            <error>The user does not exist!</error><br><br>
+            <label>Password: <input type="password" class = "user" name="userPassword" id = "passwordT" required placeholder="Required" ></label><br>
+            <error>The password is incorrect!</error><br><br>
+            <a href="signup.html">Create new account</a><br><br><br>
+            <label><div><input type = "submit" name = "userSubmit" id = "submitS" value="login"></label></div><br>        
+        </form>
+    </div>
+    <div></div>
+
+  </body>
+</html> 
