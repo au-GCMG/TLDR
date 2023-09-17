@@ -33,7 +33,4 @@ INSERT INTO Task(name) VALUES('Complete Checkpoint 2');
 INSERT INTO Task(name) VALUES('Complete Checkpoint 3');
 INSERT INTO Task(name) VALUES('Complete Checkpoint 4');
 INSERT INTO Task(name) VALUES('Complete Checkpoint 5');
-<<<<<<< HEAD
-=======
 */
->>>>>>> 397f5b9a1af7956f5017ef2554f389d3bfff9a29
