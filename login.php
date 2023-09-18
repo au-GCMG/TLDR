@@ -9,16 +9,13 @@
   <body>
   <?php
     require_once "inc/dbconn.inc.php";
-
-    // Add your code here
-    
-    $username = $_POST["userName"];
-    $password = $_POST["userPassword"];
-    //$password = md5($_POST["userPassword"]);
-
+    $username = strtoupper($_POST["userName"]);
+    //$password = $_POST["userPassword"];
+    $password = md5($_POST["userPassword"]);
     
     $sql = "SELECT * FROM User where email = '".$username."'";
     $result = mysqli_query($conn, $sql);
+    
     if($result)
     {
         if(mysqli_num_rows($result) > 0)//user found
@@ -49,12 +46,7 @@
                     echo "<a id = 'error'>The password incorrect!<br>The page will be return after 3 seconds.</error>";
                     header("Refresh:3; login.html");
                 }
-            }
-            
-            
-
-            
-            
+            }           
             /*
             while($row = mysqli_fetch_assoc($result))
             {                
@@ -68,6 +60,7 @@
             header("Refresh:3; login.html");
         }
     }
+    
     mysqli_free_result($result);
     mysqli_close($conn);
 
