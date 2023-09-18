@@ -31,7 +31,7 @@
                     switch($style)
                     {
                         case "STUDENT":
-                            header("location: student.html");
+                            header("location: student.php");
                             break;
                         case "INSTRUCTOR":
                             header("location: instructor.html");
