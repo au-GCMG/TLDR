@@ -28,6 +28,10 @@
                 {
                     $row = mysqli_fetch_assoc($result);
                     $style = $row['style'];
+
+                    session_start();
+                    $_SESSION['email'] = $username;
+                    
                     switch($style)
                     {
                         case "STUDENT":
