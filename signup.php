@@ -69,8 +69,8 @@
             $result3 = mysqli_query($conn, $sql);
             if($result3)
             {
-                echo"<a id = 'OK'>Congratulation on your succcessful registration!<br>The page will be return to login after 5 seconds.</a>";
-                header("Refresh:5; login.html");
+                echo"<a id = 'OK'>Congratulation on your succcessful registration!<br>The page will be return to login after 3 seconds.</a>";
+                header("Refresh:3; login.html");
             }
         }        
     }
