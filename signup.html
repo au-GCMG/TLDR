@@ -14,7 +14,7 @@
       <h2>Create a new account!</h2><br>
       <div id = "form">
             <form id = contactForm action="signup.php" method="post">
-                <label>Email*:</label><div><input type="email" class = "user" name = "userEmail" required placeholder="Required" ></div><br>
+                <label>Email*:</label><div><input type="email" id = "id_userEmail" class = "user" name = "userEmail" required placeholder="Required" ></div><br>
                 <label>Firstname*:</label><div><input type="text" class = "user" name = "userFirstname" required placeholder="Required" ></div><br>
                 <label>Surname*:</label><div><input type="text" class = "user" name = "userSurname" required placeholder="Required" ></div><br>
                 <label>Password*:</label><div><input type="password" class = "user" name = "userPassword" id = "passwordT" required placeholder="Required" ></div><br>
@@ -48,14 +48,15 @@
                 <label>Style*:</label>
                     <div>
                         <select class = "user" id="style" name = "userStyle" required>
-                            <option value="Student" selected>Student</option>
+                            <option value="STUDENT" selected>STUDENT</option>
                             <option value="PARENT(QSD)">PARENT(QSD)</option>
+                            <option value="INSTRUCTOR">INSTRUCTOR</option>
                         </select>
                     </div>
                 <br><br>
                 <div>
                     <input type = "submit" name = "userSubmit" id = "submitSave" value="Save">
-                    <input type = "button" name = "userCancel" id = "submitCancel" value="Cancel">                
+                    <input type = "button" name = "userCancel" id = "submitCancel" value="Cancel">
                 </div><br>        
             </form>
       </div>

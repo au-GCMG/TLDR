@@ -90,3 +90,17 @@ label {
 #submitCancel:hover {
     background-color: #ffa703;
 }
+
+#error{
+    color: red;
+    font-size:large;
+    text-align: center;
+    display:block;
+    /*visibility:hidden;*/
+}
+
+#OK{
+    color: green;
+    font-size:large;
+    text-align: center;
+}

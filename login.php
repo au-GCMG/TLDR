@@ -34,16 +34,21 @@
                             header("location: student.php");
                             break;
                         case "INSTRUCTOR":
-                            header("location: instructor.html");
+                            header("location: instructor.php");
                             break;
                         case "PARENT(QSD)":
-                            header("location: qsd.html");
+                            header("location: qsd.php");
+                            break;
+                        case "GOVERNMENT":
+                            header("location: government.php");
                             break;
                     }
                 }
                 else
                 {
-                    echo "<a id = 'error'>The password incorrect!<br>The page will be return after 3 seconds.</error>";
+                    echo "<a id = 'error'>The password incorrect!<br>The page will be return after 3 seconds.</a>";
+                    mysqli_free_result($result);
+                    mysqli_close($conn);
                     header("Refresh:3; login.html");
                 }
             }           
@@ -57,12 +62,14 @@
         else
         {
             echo "<a id = 'error'>The user is not Found!<br>The page will be return after 3 seconds.</a>";
+            mysqli_free_result($result);
+            mysqli_close($conn);
             header("Refresh:3; login.html");
         }
     }
     
-    mysqli_free_result($result);
-    mysqli_close($conn);
+    //mysqli_free_result($result);
+    //mysqli_close($conn);
 
 ?>
 
