@@ -30,5 +30,22 @@
         mysqli_free_result($result);
         mysqli_close($conn);
     ?>
+    <div id = 'overview'>
+      <caption>logbook(Green)<br>Requirement of Total 4500 mins</caption>      
+      <table id = "green">             
+        <tbody>           
+          <tr><th colspan="4" class ="first">Daytime</th>
+          <tr><th><th>Completed<th>No Sign<th>Remaining</tr>        
+          <tr><th>Total(min)<td>cell1.1<td>cell1.2<td>cell1.3</tr>          
+        </tbody>
+        <br>
+        <tbody>
+          <tr><th colspan="4" class ="next">NightTime</th>
+          <tr><th><th>Completed<th>No Sign<th>Remaining</tr>  
+          <tr><th>Total(min)<td>cel3.1<td>cell3.2<td>cell3.3</tr>
+        </tbody>
+      </table> 
+    </div>
+
   </body>
 </html>
