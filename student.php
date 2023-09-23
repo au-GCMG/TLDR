@@ -28,23 +28,42 @@
           }
         }
         mysqli_free_result($result);
-        mysqli_close($conn);
+        //mysqli_close($conn);
+        //$totalCompleted = 2500;
+        //$daytimeCompleted = "1000";
+        //$nighttimeCompleted = "233";
+        require_once "inc/student-overview.php";
     ?>
-    <div id = 'overview'>
-      <caption>logbook(Green)<br>Requirement of Total 4500 mins</caption>      
+   
+    <div id = 'overview'>      
+      <caption>Logbook(Green)<br>Requirement of Total 4500 mins (Include 900 mins nighttime)</caption><br>
+      <div id = "progress">
+        <label for = "green">T Completed: </label>
+        <progress id = "completed" max = "4500", value=<?=$totalCompleted ?>></progress><a><?=$totalCompleted ?>/4500min</a><br> 
+        <label for = "daytime">D Completed: </label>
+        <progress id = "daytimeCompleted" max = "3600", value=<?=$daytimeCompleted ?>></progress><a><?=$daytimeCompleted ?>/3600min</a><br>
+        <label for = "nighttime">N Completed: </label>
+        <progress id = "nighttimeCompleted" max = "900", value=<?=$nighttimeCompleted ?>></progress><a><?=$nighttimeCompleted ?>/900min</a><br>   
+      </div>
       <table id = "green">             
-        <tbody>           
-          <tr><th colspan="4" class ="first">Daytime</th>
-          <tr><th><th>Completed<th>No Sign<th>Remaining</tr>        
-          <tr><th>Total(min)<td>cell1.1<td>cell1.2<td>cell1.3</tr>          
+        <thead>           
+          <tr><th colspan="4" class ="first">Daytime</th></tr>
+          <tr><th></th><th>Completed</th><th>No Sign</th><th>Remaining</th></tr>
+        </thead>
+        <tbody>        
+          <tr><th>Total(min)<td><?=$daytimeCompleted ?><td><?=$daytimeNosign ?><td><?=$daytimeRemaining ?></tr>          
         </tbody>
         <br>
-        <tbody>
-          <tr><th colspan="4" class ="next">NightTime</th>
-          <tr><th><th>Completed<th>No Sign<th>Remaining</tr>  
-          <tr><th>Total(min)<td>cel3.1<td>cell3.2<td>cell3.3</tr>
+        <thead>
+          <tr><th colspan="4" class ="next">NightTime</th></tr>
+          <tr><th></th><th>Completed</th><th>No Sign</th><th>Remaining</th></tr>
+        </thead>
+        <tbody>  
+          <tr><th>Total(min)<td><?=$nighttimeCompleted ?><td><?=$nighttimeNosign ?><td><?=$nighttimeRemaining ?></tr>
         </tbody>
       </table> 
+      <br><br>
+      <caption>CBT/A(Yellow)</caption><br>
     </div>
 
   </body>

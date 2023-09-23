@@ -12,3 +12,20 @@ function passwordValidate()
         document.getElementById("repasswordT").focus();
     }
 }
+
+function changeDaytime()
+{
+    self.location = "MyLogbookN.php";
+}
+function changeNighttime()
+{    
+    self.location = "MyLogbookD.php";
+}
+
+function setNightMenuActive()
+{    
+    const menu = document.querySelectorAll("#menu a");
+    menu[1].classList.add("selected");    
+}
+
+setNightMenuActive();
