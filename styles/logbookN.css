@@ -25,6 +25,16 @@ table#greenRecord thead{
     /*display: inline-block;*/
 }
 
+table#greenRecord tbody{
+    border: 1px solid black;
+    background-color: lightgreen;
+    width: 100%;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: lighter;
+    font-size: small;
+    /*display: inline-block;*/
+}
+
 /*slider switch button(day)*/
 #switchArea{
     text-align: right;  

@@ -30,7 +30,7 @@
           }
         }
         mysqli_free_result($result);
-        mysqli_close($conn);
+        //mysqli_close($conn);
         $totalCompleted = "2000";
         $daytimeCompleted = "1000";
         $nighttimeCompleted = "233";
@@ -51,7 +51,7 @@
               <th style = "width: 18%"colspan="3">Time</th>
               <th style = "width: 18%"colspan="2">Location</th>
               <th style = "width: 18%"colspan="3">Condition</th>
-              <th style = "width: 8%"rowspan="2">Learner's signature</th>
+              <th style = "width: 7%"rowspan="2">Learner's signature</th>
               <th style = "width: 25%"colspan="3">QSD</th>
               <th style = "width: 10%"rowspan="2">MAP</th>
             </tr>
@@ -64,33 +64,16 @@
               <th style = "width: 5%">Road</th>
               <th style = "width: 5%">Weather</th>
               <th style = "width: 5%">Traffic</th>
-              <th style = "width: 10%">Full Name</th>
+              <th style = "width: 15%">Full Name</th>
               <th style = "width: 10%">Licence No.</th>
-              <th style = "width: 10%">Signature</th>
+              <th style = "width: 7%">Signature</th>
             </tr>
           </thead>
         <tbody>
-            <tr>
-              <th style = "width: 7%">2023-09-23</th>      
-              <th style = "width: 5%">08:00:00</th>
-              <th style = "width: 5%">10:00:00</th>
-              <th style = "width: 5%">2</th>
-              <th style = "width: 10%">Marion</th>
-              <th style = "width: 10%">Victor Harbor</th>
-              <th style = "width: 5%">Sealed</th>
-              <th style = "width: 5%">Dry</th>
-              <th style = "width: 5%">Light</th>
-              <th style = "width: 10%">1</th>
-              <th style = "width: 10%">JAMES BOND</th>
-              <th style = "width: 10%">PA0001</th>
-              <th style = "width: 10%">1</th>
-              <th style = "width: 10%">
-                <form name = "map" action="map.php" method="get" target="_blank">
-                  <input type = "hidden" name = "foldname" value="202309230800">
-                  <input type = "submit" value="map">
-                </form>
-              </th>
-            </tr>
+            <?php
+              $currentTime = "DAY";
+              require_once "inc/student_logbook.php";              
+            ?>
         </tbody>
         </table>
     </div>

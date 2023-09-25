@@ -30,7 +30,7 @@
           }
         }
         mysqli_free_result($result);
-        mysqli_close($conn);
+        //mysqli_close($conn);
         $totalCompleted = "2000";
         $daytimeCompleted = "1000";
         $nighttimeCompleted = "233";
@@ -47,13 +47,13 @@
         <table id = 'greenRecord'>
           <thead id = 'nightRecord'>
             <tr>
-              <th style = "width: 5%" rowspan="2">Date</th>
+              <th style = "width: 7%" rowspan="2">Date</th>
               <th style = "width: 18%"colspan="3">Time</th>
               <th style = "width: 18%"colspan="2">Location</th>
               <th style = "width: 18%"colspan="3">Condition</th>
-              <th style = "width: 10%"rowspan="2">Learner's signature</th>
+              <th style = "width: 7%"rowspan="2">Learner's signature</th>
               <th style = "width: 25%"colspan="3">QSD</th>
-              <th style = "width: 25%"rowspan="2">MAP</th>
+              <th style = "width: 10%"rowspan="2">MAP</th>
             </tr>
             <tr>
               <th style = "width: 5%">Start</th>
@@ -64,13 +64,16 @@
               <th style = "width: 5%">Road</th>
               <th style = "width: 5%">Weather</th>
               <th style = "width: 5%">Traffic</th>
-              <th style = "width: 10%">Full Name</th>
+              <th style = "width: 15%">Full Name</th>
               <th style = "width: 10%">Licence No.</th>
-              <th style = "width: 10%">Signature</th>
+              <th style = "width: 7%">Signature</th>
             </tr>
           </thead>
         <tbody>
-
+          <?php
+            $currentTime = "NIGHT";
+            require_once "inc/student_logbook.php";              
+          ?>
         </tbody>
         </table>
     </div>

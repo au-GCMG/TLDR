@@ -32,7 +32,7 @@
         //$totalCompleted = 2500;
         //$daytimeCompleted = "1000";
         //$nighttimeCompleted = "233";
-        require_once "inc/student-overview.php";
+        require_once "inc/student_overview.php";
     ?>
    
     <div id = 'overview'>      
