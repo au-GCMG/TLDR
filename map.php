@@ -158,7 +158,7 @@
   </head>
   <body>
 
-    <div id = "map-canvas" style = "position:absolute; width:78%; height:95%; margin:0px; padding:0px; float:left; border:solid 2px chartreuse">
+    <div id = "map-canvas" style = "position:absolute; width:78%; height:98vh; margin:0px; padding:0px; float:left; border:solid 2px chartreuse">
     </div>
 
     <?php
@@ -187,7 +187,7 @@
         mysqli_free_result($result);
         mysqli_close($conn);          
     ?>
-    <div style = "font-family:'Courier New', Courier, monospace; float:right; margin-right:0px; margin:0px; border:solid 2px red; width:20%; height:100%; position:relative">
+    <div style = "font-family:'Courier New', Courier, monospace; float:right; margin:0px; padding:0px; border:solid 2px red; width:20%; height:98vh; position:relative">
         <p style = "margin-left:10px">Date: <?=$date?></p>
         <p style = "margin-left:10px">Start : <?=$startTime?></p>
         <p style = "margin-left:10px">Finish: <?=$finishTime?></p>

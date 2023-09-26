@@ -1,0 +1,63 @@
+h2{
+    /*text-align: center;*/
+    color: black;
+}
+
+
+#student{
+    background-color: lightgreen;
+    border-color: lightgreen;
+    border-style:solid;
+    width: 20%;
+    height: 90vh;
+    float: left;
+    position: absolute;
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+    line-height: 1px;
+    overflow: auto;
+}
+
+#studentDetails{
+    background-color: lightgreen;
+    border-color: lightgreen;
+    border-style:solid;
+    width: 79%;
+    height: 90vh;
+    float: right;
+    position: relative;
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+    line-height: 1px;
+    
+}
+
+#student li{
+    line-height: 1.5em;
+    list-style: none;
+}
+
+#student li a{    
+    text-decoration: none;
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+
+#student li a:hover{
+    color: #1565c0;
+    text-decoration: none;
+}
+
+.newstudent{
+    background-image: url("../image/new.png");
+    background-size: 40px, 20px;
+    background-repeat: no-repeat;
+    display: block;
+}
+
+
+
+
