@@ -40,7 +40,7 @@
                         case "INSTRUCTOR":
                             header("location: instructor.php");
                             break;
-                        case "PARENT(QSD)":
+                        case "QSD":
                             header("location: qsd.php");
                             break;
                         case "GOVERNMENT":
