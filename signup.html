@@ -6,6 +6,7 @@
     <link rel = "stylesheet", type="text/css", href="styles/signup.css">
     <script src = "scripts/cancel.js" defer></script>
     <script src = "scripts/valid.js" defer></script>
+    <script src = "scripts/noSALicence.js" defer></script>
     <title>Sign up</title>
   </head>
   <body id = "contactBody">
@@ -41,10 +42,19 @@
                             <option value="CBR">CBR</option>
                         </select>                    
                     </div><br>
-                <label>Post*:</label><div><input type="text" class = "user" name = "userPOST" required placeholder="Required"></div><br>
+                <label>Post*:</label><div><input type="text" class = "user" name = "userPOST" placeholder="Required" required></div><br>
                 <label>Telephone:</label><div><input type="tel" class = "user" name = "userTel"></div><br>
                 <label>Mobile:</label><div><input type="tel" class = "user" name = "userMobile"></div><br>
                 <label>Driver's Licence*:</label><div><input type="tel" class = "user" name = "userDL" required placeholder="Required"></div><br>
+                <input type = "checkbox" id = "check" ><label>Interstate/Foreign Licence</label><br>
+                <div id = "sc">
+                    <br>
+                    <label>Country/State*:</label><input type = "text" name = "userCountry" id = "userCountry" required value="SA">
+                    <label>Expire*:</label><input type = "date" name = "userExpiry" required>
+                    <label>Yrs Held*:</label><input type = "number" name = "userHeld" required min = "1900" max = "9999" step = "1" value="2023">
+                </div>
+                
+                <br><br>
                 <label>Style*:</label>
                     <div>
                         <select class = "user" id="style" name = "userStyle" required>

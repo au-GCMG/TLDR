@@ -28,4 +28,6 @@ function setNightMenuActive()
     menu[1].classList.add("selected");    
 }
 
+
+
 setNightMenuActive();
