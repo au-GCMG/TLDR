@@ -99,7 +99,6 @@
           {
             echo "<p>".base64_decode($_GET["id"])."</p>";
             echo "<p>".$_GET["new"]."</p>";
-            //echo  base64_decode($_GET["id"]);
           } 
           //check completed
            

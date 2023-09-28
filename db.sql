@@ -64,6 +64,21 @@ CREATE TABLE RecordGreen(
     /*updated timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP*/
 ) AUTO_INCREMENT = 1;
 
+CREATE TABLE payment(
+    id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    studentL varchar(10),
+    instructorL varchar(100),
+    date date,
+    invoiceN varchar(50),
+    description varchar(100),
+    unitprice float,
+    unit float,
+    amount float,
+    tax float,
+    totalAmount float,
+    paid boolean NOT NULL DEFAULT 0 
+) AUTO_INCREMENT = 1;
+
 CREATE user IF NOT EXISTS dbadmin@localhost;
 GRANT all privileges ON TLDR.User TO dbadmin@localhost;
 
@@ -75,6 +90,10 @@ GRANT all privileges ON TLDR.RecordGreen TO dbadmin@localhost;
 
 CREATE user IF NOT EXISTS dbadmin@localhost;
 GRANT all privileges ON TLDR.sys_SALicence TO dbadmin@localhost;
+
+CREATE user IF NOT EXISTS dbadmin@localhost;
+GRANT all privileges ON TLDR.payment TO dbadmin@localhost;
+
 
 INSERT INTO sys_Instructor(licence,mdi) VALUES('IN0001','MD0001');
 INSERT INTO sys_Instructor(licence,mdi) VALUES('IN0002','MD0002');
@@ -114,3 +133,6 @@ INSERT INTO RecordGreen(studentL, studentName,date, startTime,finishTime,duratio
 INSERT INTO RecordGreen(studentL, studentName,date, startTime,finishTime,duration,fromLocation,toLocation,road,weather,traffic,qsdName,qsdLicence,studentSignature,qsdSignature) VALUES('ST0001','SHERLOCK HOLMES','2023-09-20','20:00:00', '21:30:00', 90, 'MARION SHOPPING CENTRE','BLACKWOOD','SEALS','DRY','LIGHT','NING HOOK','QSD0002',1,1);
 
 INSERT INTO RecordGreen(studentL, studentName,date, startTime,finishTime,duration,fromLocation,toLocation,road,weather,traffic,qsdName,qsdLicence,studentSignature,qsdSignature) VALUES('ST0002','JOHN WATSON','2023-09-21','21:00:00', '21:30:00', 30, 'FLINDERS UNI','BLACKWOOD','SEALS','DRY','LIGHT','NING HOOK','QSD0001',1,1);
+
+INSERT INTO payment(studentL,instructorL,date,invoiceN,description,unitprice,unit,amount,tax,totalAmount,paid) VALUES('ST0001','IN0001','2023-09-20','IN0001','MEONY MEONY',30,4,120,12,132,'0');
+INSERT INTO payment(studentL,instructorL,date,invoiceN,description,unitprice,unit,amount,tax,totalAmount,paid) VALUES('ST0001','IN0001','2023-09-23','IN0001','MEONY MEONY',30,2.5,75,7.5,83.5,'0');

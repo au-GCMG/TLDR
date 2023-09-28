@@ -31,10 +31,10 @@
 
     if(file_exists($file_path))
     {
-        $file_arr = file($file_path);
-        for($i = 0; $i < count($file_arr); $i++)
+        $file_dat = file($file_path);
+        for($i = 0; $i < count($file_dat); $i++)
         {
-            $data[$i] = $file_arr[$i];
+            $data[$i] = $file_dat[$i];
         }
         /*
         $data[0] = "-35.010258, 138.572807";
