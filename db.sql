@@ -85,7 +85,9 @@ CREATE TABLE RecordGreen(
 CREATE TABLE payment(
     id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
     studentL varchar(10),
-    instructorL varchar(100),
+    studentName varchar(10),
+    payeeL varchar(100),
+    payeeName varchar(100),
     date date,
     invoiceN varchar(50),
     description varchar(100),
@@ -183,5 +185,5 @@ INSERT INTO RecordGreen(studentL, studentName,date, startTime,finishTime,duratio
 
 INSERT INTO RecordGreen(studentL, studentName,date, startTime,finishTime,duration,fromLocation,toLocation,road,weather,traffic,qsdName,qsdLicence,studentSignature,qsdSignature) VALUES('ST0002','JOHN WATSON','2023-09-21','21:00:00', '21:30:00', 30, 'FLINDERS UNI','BLACKWOOD','SEALS','DRY','LIGHT','NING HOOK','QSD0001',1,1);
 
-INSERT INTO payment(studentL,instructorL,date,invoiceN,description,unitprice,unit,amount,tax,totalAmount,paid) VALUES('ST0001','IN0001','2023-09-20','IN0001','MEONY MEONY',30,4,120,12,132,'0');
-INSERT INTO payment(studentL,instructorL,date,invoiceN,description,unitprice,unit,amount,tax,totalAmount,paid) VALUES('ST0001','IN0001','2023-09-23','IN0001','MEONY MEONY',30,2.5,75,7.5,83.5,'0');
+INSERT INTO payment(studentL,studentName,payeeL,payeeName,date,invoiceN,description,unitprice,unit,amount,tax,totalAmount,paid) VALUES('ST0001','SHERLOCK HOLMES','IN0001','JAMES BOND','2023-09-20','INV0001','MEONY MEONY',30,4,120,12,132,'0');
+INSERT INTO payment(studentL,studentName,payeeL,payeeName,date,invoiceN,description,unitprice,unit,amount,tax,totalAmount,paid) VALUES('ST0001','SHERLOCK HOLMES','IN0001','JAMES BOND','2023-09-23','INV0001','MEONY MEONY',30,2.5,75,7.5,83.5,'0');

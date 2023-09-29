@@ -37,8 +37,7 @@
     ?>
    
     <div id = 'overview'>      
-      <caption>MY LOGBOOK(Green)<br>Requirement of Total 4500 mins (Include 900 mins nighttime)</caption><br>
-      <br>
+      <caption>MY LOGBOOK(Green)<br>Requirement of Total 4500 mins (Include 900 mins nighttime)</caption><br><br>
       <div id = "progress">
         <label>Total: Completed: </label>
         <progress id = "completed" max = "4500", value=<?=$totalCompleted ?>></progress>&nbsp&nbsp<a><?=$totalCompleted ?>/4500min</a><br> 
@@ -65,19 +64,19 @@
           <tr><th>Total(min)<td><?=$nighttimeCompleted ?><td><?=$nighttimeRemaining ?><td><?=$nighttimeNosign ?></tr>
         </tbody>
       </table> 
-      <br><a style = "font-size:small">*please click 'myLogbook' for details</a>
+      <br><a style = "font-size:small">*please click </a><a style = "font-size:small" href="MyLogbookD.php">'myLogbook'</a><a style = "font-size:small"> for details</a>
 
       <br><br>
       <hr>
 
-      <caption>MY CBT(Yellow)</caption><br>
+      <caption>MY CBT(Yellow)</caption><br><br>
       <div id = "progress">
         <label>Units Completed: </label>
-        <progress id = "unitCompleted" max = "4", value=<?=$totalCompleted ?>></progress>&nbsp&nbsp<a><?=$totalCompleted ?>/4</a><br> 
+        <progress id = "unitCompleted" max = <?=$totalUnit ?>, value=<?=$totalCompleted ?>></progress>&nbsp&nbsp<a><?=$totalCompleted ?>/<?=$totalUnit ?></a><br> 
         <label>Tasks Completed: </label>
-        <progress id = "taskCompleted" max = "32", value=<?=$daytimeCompleted ?>></progress>&nbsp&nbsp<a><?=$daytimeCompleted ?>/32</a><br>
+        <progress id = "taskCompleted" max = <?=$totalTask ?>, value=<?=$daytimeCompleted ?>></progress>&nbsp&nbsp<a><?=$daytimeCompleted ?>/<?=$totalTask ?></a><br>
         <label>Items Completed: </label>
-        <progress id = "itemCompleted" max = "250", value=<?=$nighttimeCompleted ?>></progress>&nbsp&nbsp<a><?=$nighttimeCompleted ?>/250</a><br>   
+        <progress id = "itemCompleted" max = <?=$totalItem ?>, value=<?=$nighttimeCompleted ?>></progress>&nbsp&nbsp<a><?=$nighttimeCompleted ?>/<?=$totalItem ?></a><br>   
       </div>
       <br><br>
       <table id = "yellow">             
@@ -91,7 +90,7 @@
           <tr><th>Items<td><?=$daytimeCompleted ?><td><?=$daytimeRemaining ?><td><?=$daytimeNosign ?></tr>           
         </tbody>        
       </table> 
-      <br><a style = "font-size:small">*please click 'myCBT' for details</a>
+      <br><a style = "font-size:small">*please click </a><a style = "font-size:small" href="MyCBT.php">'myCBT'</a><a style = "font-size:small"> for details</a>
 
       <br><br>
       <hr>
@@ -106,7 +105,7 @@
         <tr><th>Amount($)<td><?=$totalPaid ?><td><?=$totalUnpaid ?><td><?=$totalAmount ?></tr>
       </tbody>
       </table>
-      <br><a style = "font-size:small">*please click 'myFinance' for details</a>
+      <br><a style = "font-size:small">*please click </a><a style = "font-size:small" href="MyFinance.php">'myFinance'</a><a style = "font-size:small">for details</a>
 
   </body>
 </html>

@@ -1,0 +1,36 @@
+h4{
+    text-align: center;
+    color: black;
+}
+
+
+#myPayment{
+    text-align:center;
+    color: black;
+    font-weight: bold;
+    font-size:large;
+}
+
+ table#paymentRecord{
+    width:  100%;
+    font-family: Arial, Helvetica, sans-serif;
+    border: 1px solid black;
+    text-align: center;
+    display: inline-block;
+}
+table#paymentRecord thead{
+    border: 1px solid black;
+    background-color: lightsalmon;
+    width: 100%;
+    /*display: inline-block;*/
+}
+
+table#paymentRecord tbody{
+    border: 1px solid black;
+    background-color: lightblue;
+    width: 100%;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: lighter;
+    font-size: small;
+    /*display: inline-block;*/
+}
