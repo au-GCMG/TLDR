@@ -19,6 +19,24 @@ CREATE TABLE sys_SALicence(
     held integer 
 ) AUTO_INCREMENT = 1;
 
+CREATE TABLE sys_unit(
+    id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    unitNO varchar(10),
+    description varchar(100)    
+) AUTO_INCREMENT = 1;
+
+CREATE TABLE sys_task(
+    id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    taskNO varchar(10),
+    description varchar(100)    
+) AUTO_INCREMENT = 1;
+
+CREATE TABLE sys_item(
+    id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    itemNO varchar(10),
+    description varchar(100)    
+) AUTO_INCREMENT = 1;
+
 
 CREATE TABLE User(
     id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -71,11 +89,11 @@ CREATE TABLE payment(
     date date,
     invoiceN varchar(50),
     description varchar(100),
-    unitprice float,
-    unit float,
-    amount float,
-    tax float,
-    totalAmount float,
+    unitprice decimal(5,2),
+    unit decimal(5,2),
+    amount decimal(5,2),
+    tax decimal(5,2),
+    totalAmount decimal(5,2),
     paid boolean NOT NULL DEFAULT 0 
 ) AUTO_INCREMENT = 1;
 
@@ -93,6 +111,37 @@ GRANT all privileges ON TLDR.sys_SALicence TO dbadmin@localhost;
 
 CREATE user IF NOT EXISTS dbadmin@localhost;
 GRANT all privileges ON TLDR.payment TO dbadmin@localhost;
+
+CREATE user IF NOT EXISTS dbadmin@localhost;
+GRANT all privileges ON TLDR.sys_unit TO dbadmin@localhost;
+
+CREATE user IF NOT EXISTS dbadmin@localhost;
+GRANT all privileges ON TLDR.sys_task TO dbadmin@localhost;
+
+CREATE user IF NOT EXISTS dbadmin@localhost;
+GRANT all privileges ON TLDR.sys_item TO dbadmin@localhost;
+
+INSERT INTO sys_unit(unitNO,description) VALUES('U1','Basic driving procedures');
+INSERT INTO sys_unit(unitNO,description) VALUES('U2','Slow speed manoeuvres');
+INSERT INTO sys_unit(unitNO,description) VALUES('U3','Basic road skills');
+INSERT INTO sys_unit(unitNO,description) VALUES('U4','Traffic management skills');
+
+INSERT INTO sys_task(taskNO,description) VALUES('U1T1','Cabin drill and controls');
+INSERT INTO sys_task(taskNO,description) VALUES('U1T2','Starting up and shutting dwon the engine');
+INSERT INTO sys_task(taskNO,description) VALUES('U1T3','Moving off from kerb');
+INSERT INTO sys_task(taskNO,description) VALUES('U1T4','Stopping and securing the vehicle');
+INSERT INTO sys_task(taskNO,description) VALUES('U1T5','Stop and go(using the park brake)');
+INSERT INTO sys_task(taskNO,description) VALUES('U1T6','Gear changing(up and down)');
+INSERT INTO sys_task(taskNO,description) VALUES('U1T7','Steering(forward and reverse)');
+INSERT INTO sys_task(taskNO,description) VALUES('U1T8','Review all basic driving procedures');
+
+INSERT INTO sys_item(itemNO,description) VALUES('U1T1IA','a.Ensure the door and close');
+INSERT INTO sys_item(itemNO,description) VALUES('U1T1IB','b.check that the park brake is firmly applied');
+INSERT INTO sys_item(itemNO,description) VALUES('U1T1IC','c.Adjust the seat, head restraint and steering wheel');
+INSERT INTO sys_item(itemNO,description) VALUES('U1T1ID','d.Adjust all mirrors');
+INSERT INTO sys_item(itemNO,description) VALUES('U1T1IE','e.Locate,identify and be able to use all vehicle controls when driving');
+INSERT INTO sys_item(itemNO,description) VALUES('U1T1IF','f.Perform all step(a) to (e) in sequence');
+INSERT INTO sys_item(itemNO,description) VALUES('U1T1IG','g.Ensure all requiredd seat belts are fastened correctly');
 
 
 INSERT INTO sys_Instructor(licence,mdi) VALUES('IN0001','MD0001');

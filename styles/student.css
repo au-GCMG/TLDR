@@ -9,7 +9,7 @@ h4{
 }
 
 #menuBlock{
-    text-align: center;
+    text-align: center;   
 }
 
 
@@ -24,7 +24,7 @@ h4{
     margin-top: 0px;
     margin-bottom: 30px;
     text-align: center;
-    display:flex;
+    display:flex;    
     align-items: center;
     border-bottom-color: #ddd;
     border-bottom-style: solid;
@@ -43,6 +43,7 @@ h4{
     display: block;
     float: left;    
     color: black;
+    font-size: large;
 }
 
 #menu li a:hover{
@@ -63,7 +64,7 @@ h4{
 
 table#green{
     width:  50%;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Courier New', Courier, monospace;
     border: 2px solid black;
     text-align: center;
     display: inline-block;
@@ -89,5 +90,45 @@ table#green th.next{
     text-align:left;
     font-weight: normal;
     font-size:medium;
+    font-family: 'Courier New', Courier, monospace;
  }
 
+ table#pink{
+    width:  40%;
+    font-family:'Courier New', Courier, monospace;
+    border: 2px solid black;
+    text-align: center;
+    display: inline-block;
+    
+}
+table#pink tr th{
+    border: 1px solid black;
+}
+table#pink tr td{
+    border: 1px solid black;
+}
+
+table#pink th.payment{
+    background-color: pink;
+    width: 40%;
+}
+
+table#yellow{
+    width:  50%;
+    font-family:'Courier New', Courier, monospace;
+    border: 2px solid black;
+    text-align: center;
+    display: inline-block;
+    
+}
+table#yellow tr th{
+    border: 1px solid black;
+}
+table#yellow tr td{
+    border: 1px solid black;
+}
+
+table#yellow th.cbt{
+    background-color: orange;
+    width: 45%;
+}
