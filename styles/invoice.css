@@ -1,0 +1,117 @@
+#invoiceTitle{
+    text-align: center;
+    background-color: pink;    
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    width: 640px;
+    height: 120px;
+    position:relative;
+}
+#invoiceName{
+    text-align: left;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    margin-left: 10px;
+    margin-top: 0;
+    font-size: large;
+    display:inline-block;    
+    position: absolute;
+}
+
+#invoiceInfo{
+    text-align: right;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    margin-right: 10px;
+    margin-top: 8%;
+    font-size:medium;
+    display:inline-block;    
+}
+
+/**********************************************/
+#invoicehead{
+    text-align: left;
+    background-color: pink;
+    margin: 0 auto;
+    width: 640px;
+    height: 100px;
+    display: block;
+}
+#student{
+    text-align: left;
+    font-family: 'Courier New', Courier, monospace;     
+    background-color: pink;      
+    width: 305px;
+    height: 80px;
+    margin-left: 15px;
+    display:inline-block;
+}
+#instructor{
+    text-align: right;
+    font-family: 'Courier New', Courier, monospace;
+    background-color: pink;      
+    width: 305px;
+    height: 80px;
+    display:inline-block;
+}
+
+/**********************************************/
+hr{
+    color: red;
+    width: 640px;
+    height: 2px;
+    background-color: pink;
+    margin: 0 auto;    
+}
+#invoiceTable{
+    /* border-style: double; */
+    /* border-color: orange; */
+    background-color: pink;
+    text-align: left;
+    margin: 0 auto;
+    display:flex;
+    flex-direction: column;
+    width: 640px;
+    height: 360px;
+}
+table#content{
+    width:  100%;
+    font-family:'Courier New', Courier, monospace;
+    font-weight: bold;
+    border: 1px solid pink;
+    text-align: left;
+    display: inline-block;
+}
+table#content thead{
+    border: 1px solid black;
+    background-color: pink;
+    width: 100%;
+    /*display: inline-block;*/
+}
+
+table#content tbody{
+    border: 1px solid black;
+    background-color: pink;
+    width: 100%;
+    font-family:'Courier New', Courier, monospace;
+    font-weight: lighter;
+    font-size: small;
+    /*display: inline-block;*/
+}
+
+/**********************************************/
+#invoiceFoot{
+    font-family: 'Courier New', Courier, monospace;
+    font-size: medium;
+    font-weight: bold;
+    /* border-style: double; */
+    /* border-color: orange; */
+    background-color: pink;
+    text-align: right;
+    margin: 0 auto;
+    display:block;
+    flex-direction: column;
+    width: 640px;
+    height: 50px;
+}

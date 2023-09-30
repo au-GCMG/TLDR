@@ -2,7 +2,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="author" content="Shansong Huang" />
-    <meta name="description" content="TLDR student" />
+    <meta name="description" content="TLDR student finance" />
     <link rel = "stylesheet", type="text/css", href="styles/student.css">
     <link rel = "stylesheet", type="text/css", href="styles/myfinance.css">
     <script src="scripts/studentMenu.js" defer></script>
