@@ -76,27 +76,27 @@
     $totalUnpaid = 0.00;
     $totalAmount = 0.00;
     //Paid
-    $sql = "SELECT SUM(totalAmount) AS totalAmount FROM payment where studentL = '{$licence}' and paid = 1";
+    $sql = "SELECT SUM(amount) AS amount FROM payment where studentL = '{$licence}' and paid = 1";
     $result5 = mysqli_query($conn, $sql);
     if($result5)
     {
       if(mysqli_num_rows($result5) > 0)
       {
         $row = mysqli_fetch_assoc($result5);
-        $totalPaid = $row['totalAmount'];
+        $totalPaid = $row['amount'];
       }
     }    
     mysqli_free_result($result5);
     
     //unpaid
-    $sql = "SELECT SUM(totalAmount) AS totalAmount FROM payment where studentL = '{$licence}' and paid = 0";
+    $sql = "SELECT SUM(amount) AS amount FROM payment where studentL = '{$licence}' and paid = 0";
     $result6 = mysqli_query($conn, $sql);
     if($result5)
     {
       if(mysqli_num_rows($result6) > 0)
       {
         $row = mysqli_fetch_assoc($result6);
-        $totalUnpaid = $row['totalAmount'];
+        $totalUnpaid = $row['amount'];
       }      
     }
     mysqli_free_result($result6);   
@@ -156,11 +156,7 @@
         $totalItem = $row['totalNO'];
       }      
     }
-    mysqli_free_result($result9);      
-
-
-
-
+    mysqli_free_result($result9);
     mysqli_close($conn);
 
 ?>

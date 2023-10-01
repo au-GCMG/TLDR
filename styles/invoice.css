@@ -48,7 +48,7 @@
     display:inline-block;
 }
 #instructor{
-    text-align: right;
+    text-align: left;
     font-family: 'Courier New', Courier, monospace;
     background-color: pink;      
     width: 305px;

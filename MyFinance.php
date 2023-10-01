@@ -36,18 +36,17 @@
             <tr>
               <th style = "width: 7%" rowspan="2">Date</th>
               <th style = "width: 7%"rowspan="2">No.</th>
-              <th style = "width: 35%"rowspan="2">Description</th>
+              <th style = "width: 37%"rowspan="2">Description</th>
               <th style = "width: 7"colspan="2">UNIT</th>
               <th style = "width: 7%"rowspan="2">Amount</th>
-              <th style = "width: 5%"rowspan="2">Tax</th>
-              <th style = "width: 7%"rowspan="2">Total</th>
-              <th style = "width: 10%"rowspan="2">Payee</th>
+              <th style = "width: 5%"rowspan="2">Tax</th>              
+              <th style = "width: 13%"rowspan="2">Payee</th>
               <th style = "width: 7%"rowspan="2">Paid</th>
               <th style = "width: 15%"rowspan="2">Invoice</th>
             </tr>
             <tr>
               <th style = "width: 7%">Price</th>
-              <th style = "width: 7%">Unit</th>              
+              <th style = "width: 7%">Unit(H)</th>              
             </tr>
           </thead>
         <tbody>
@@ -63,13 +62,12 @@
                   echo "<tr>";
                   echo "<th style = 'width: 7%'>",$row['date'],"</th>";     
                   echo "<th style = 'width: 7%'>",$row['invoiceN'],"</th>";
-                  echo "<th style = 'width: 35%'>",$row['description'],"</th>";
+                  echo "<th style = 'width: 37%'>",$row['description'],"</th>";
                   echo "<th style = 'width: 7%'>",$row['unitprice'],"</th>";
                   echo "<th style = 'width: 7%'>",$row['unit'],"</th>";
                   echo "<th style = 'width: 7%'>",$row['amount'],"</th>";
-                  echo "<th style = 'width: 5%'>",$row['tax'],"</th>";
-                  echo "<th style = 'width: 7%'>",$row['totalAmount'],"</th>";
-                  echo "<th style = 'width: 10%'>",$row['payeeName'],"</th>";
+                  echo "<th style = 'width: 5%'>",$row['tax'],"</th>";                  
+                  echo "<th style = 'width: 13%'>",$row['payeeName'],"</th>";
                   if($row['paid'] == 0)
                   {
                       echo "<th style = 'width: 7%; background-color: pink'>";

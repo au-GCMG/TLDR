@@ -7,6 +7,44 @@
     <title>Invoice</title>
   </head>
   <?php
+    $id = $_GET["id"];
+    require_once "inc/dbconn.inc.php";  
+
+    $invoiceN = "";
+    $invoicedate = "";
+    $studentL = "";
+    $studentname = "";
+    $payeeL = "";
+    $payeename = "";
+
+    
+    $studentaddress = "";
+    $studentsuburb = "";
+    $studentpost = "";
+    $studentstate = "";
+    //instructor information    
+    
+    $payeeaddress = "";
+    $payeesuburb = "";
+    $payeepost = "";
+    $payeestate = "";
+
+    $sql = "SELECT * FROM payment where id = '{$id}'";
+    $result = mysqli_query($conn, $sql);
+    if($result)
+    {
+        $row = mysqli_fetch_assoc($result);
+        if(mysqli_num_rows($result) > 0)
+        {                
+            $studentL = $row['studentL'];
+            $studentname = $row['studentName'];
+            $payeeL = $row['payeeL'];
+            $payeename = $row['payeeName'];
+            $invoiceN = $row['invoiceN'];
+            $date = $row['date'];
+            $invoicedate = str_replace("-", "", $date);                           
+        }
+    }
 
   ?>
   <body>
@@ -16,24 +54,25 @@
             <h4>Invoice</h4>
         </div>
         <div id = "invoiceInfo">
-            <a>Invoice NO.</a><a>invoiceN</a><br>
-            <a>Date:</a><a>dated</a>        
+            <a>Invoice NO: </a><a><?=$invoiceN?></a><br>
+            <a>Date: </a><a><?=$invoicedate?></a>        
         </div>
     </div>    
     <div id = "invoiceHead">
         <div id = "student">
             <a>TO:</a><br>
-            <a>Student: </a><a>firstname surname</a><br>
-            <a>address</a><br>
-            <a>suburb</a><a>post</a><br>
-            <a>state</a>
+            <a><?=$studentname?></a><br>
+            <a><?=$studentaddress?></a><br>
+            <a><?=$studentsuburb?><?=$studentpost?></a><br>
+            <a><?=$studentstate?></a>
         </div>
         
         <div id = "instructor">
-            <a>Instructor: </a><a>firstname surname</a><br>
-            <a>address</a><br>
-            <a>suburb</a><a>post</a><br>
-            <a>state</a>
+            <a>From:</a><br>
+            <a><?=$payeename?></a><br>
+            <a><?=$payeeaddress?></a><br>
+            <a><?=$payeesuburb?><?=$payeepost?></a><br>
+            <a><?=$payeestate?></a>
         </div>
     </div>
     <hr>
@@ -58,9 +97,8 @@
         </table>
     </div>
     <div id = "invoiceFoot">
-        <a >SubTotal: </a><a>45.00</a><br>
-        <a >Tax: </a><a>4.50</a><br>
-        <a >Total: </a><a>49.50</a>
+        <a >Total: </a><a>45.00</a><br>
+        <a >Tax: </a><a>4.50</a>
     </div>
   </body>
 </html>
