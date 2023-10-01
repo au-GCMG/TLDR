@@ -16,7 +16,11 @@
     $studentname = "";
     $payeeL = "";
     $payeename = "";
-
+    $description = "";
+    $unitprice = 0.00;
+    $unit = 0.00;
+    $amount = 0.00;
+    $tax = 0.00;
     
     $studentaddress = "";
     $studentsuburb = "";
@@ -42,7 +46,12 @@
             $payeename = $row['payeeName'];
             $invoiceN = $row['invoiceN'];
             $date = $row['date'];
-            $invoicedate = str_replace("-", "", $date);                           
+            $invoicedate = str_replace("-", "", $date);
+            $description = $row['description'];
+            $unitprice = $row['unitprice'];
+            $unit = $row['unit'];
+            $amount = $row['amount'];
+            $tax = $row['tax'];
         }
     }
 
@@ -88,17 +97,17 @@
             </thead>
             <tbody>
                 <tr>
-                    <th>This is a test</th>
-                    <th>1</th>
-                    <th>45.00</th>
-                    <th>45.00</th>
+                    <th><?=$description?></th>
+                    <th><?=$unit?></th>
+                    <th><?=$unitprice?></th>
+                    <th><?=$amount?></th>
                 </tr>
             </tbody>
         </table>
     </div>
     <div id = "invoiceFoot">
-        <a >Total: </a><a>45.00</a><br>
-        <a >Tax: </a><a>4.50</a>
+        <a >Total: </a><a><?=$amount?></a><br>
+        <a >Tax: </a><a><?=$tax?></a>
     </div>
   </body>
 </html>
