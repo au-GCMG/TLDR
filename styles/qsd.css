@@ -34,6 +34,21 @@ h2{
     
 }
 
+#studentInfo{
+    display:inline;
+    text-align: left;
+    margin: 0 auto;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+#record{
+    size: 10px;
+    font-weight: bold;
+    font-size: large;
+    border-radius: 5px;
+    color: blue;
+}
+
 #student li{
     line-height: 1.5em;
     list-style: none;

@@ -30,6 +30,7 @@
     $mdi = "";
     $complete = 0;
     $style = strtoupper($_POST['userStyle']);
+    $code = strtoupper($_POST['userCode']);
 
     //check the licence belongs to SA(yes-Get information from sys_SALicence table)
     $sql = "SELECT * FROM sys_SALicence WHERE licence = '{$DL}'";
@@ -155,8 +156,8 @@
                     return;
                 }               
             }
-            $sql = "INSERT INTO User (firstname,surname,password,gender,dob,address,suburb,state,post,email,tel,mobile,licence,sc,expiry,held,mdi,completed,style) VALUES";
-            $sql.= "('{$firstname}', '{$surname}', '{$password}','{$gender}','{$dob}','{$address}','{$suburb}','{$state}','{$postcode}','{$email}','{$tel}','{$mobile}','{$DL}','{$sc}','{$expiry}','{$held}','{$mdi}','{$complete}','{$style}')";
+            $sql = "INSERT INTO User (firstname,surname,password,gender,dob,address,suburb,state,post,email,tel,mobile,licence,sc,expiry,held,mdi,completed,style,code) VALUES";
+            $sql.= "('{$firstname}', '{$surname}', '{$password}','{$gender}','{$dob}','{$address}','{$suburb}','{$state}','{$postcode}','{$email}','{$tel}','{$mobile}','{$DL}','{$sc}','{$expiry}','{$held}','{$mdi}','{$complete}','{$style}','{$code}')";
             $result3 = mysqli_query($conn, $sql);
             if($result3)
             {

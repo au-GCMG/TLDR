@@ -26,8 +26,8 @@
     $studentsuburb = "";
     $studentpost = "";
     $studentstate = "";
+
     //instructor information    
-    
     $payeeaddress = "";
     $payeesuburb = "";
     $payeepost = "";
@@ -54,7 +54,41 @@
             $tax = $row['tax'];
         }
     }
+    mysqli_free_result($result);
 
+    $sql = "SELECT * FROM user where licence = '{$studentL}'";
+    $result = mysqli_query($conn, $sql);
+    if($result)
+    {
+        $row = mysqli_fetch_assoc($result);
+        if(mysqli_num_rows($result) > 0)
+        {
+            $studentaddress = $row['address'];
+            $studentsuburb = $row['suburb'];
+            $studentpost = $row['post'];
+            $studentstate = $row['state'];
+        }
+    }
+    mysqli_free_result($result);
+
+    
+    $sql = "SELECT * FROM user where licence = '{$payeeL}'";
+    $result = mysqli_query($conn, $sql);
+    if($result)
+    {
+        $row = mysqli_fetch_assoc($result);
+        if(mysqli_num_rows($result) > 0)
+        {
+            $payeeaddress = $row['address'];
+            $payeesuburb = $row['suburb'];
+            $payeepost = $row['post'];
+            $payeestate = $row['state'];
+        }
+    }
+    mysqli_free_result($result);
+
+
+    mysqli_close($conn);   
   ?>
   <body>
     <div id = "invoiceTitle">
@@ -72,16 +106,16 @@
             <a>TO:</a><br>
             <a><?=$studentname?></a><br>
             <a><?=$studentaddress?></a><br>
-            <a><?=$studentsuburb?><?=$studentpost?></a><br>
-            <a><?=$studentstate?></a>
+            <a><?=$studentsuburb?>&nbsp&nbsp<?=$studentstate?></a><br>
+            <a><?=$studentpost?></a>
         </div>
         
         <div id = "instructor">
             <a>From:</a><br>
             <a><?=$payeename?></a><br>
             <a><?=$payeeaddress?></a><br>
-            <a><?=$payeesuburb?><?=$payeepost?></a><br>
-            <a><?=$payeestate?></a>
+            <a><?=$payeesuburb?>&nbsp&nbsp<?=$payeestate?></a><br>
+            <a><?=$payeepost?></a>
         </div>
     </div>
     <hr>

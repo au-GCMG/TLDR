@@ -3,10 +3,22 @@
     <meta charset="utf-8" />
     <meta name="author" content="Shansong Huang" />
     <meta name="description" content="TLDR QSD" />
-    <link rel = "stylesheet", type="text/css", href="styles/qsd.css">    
+    <link rel = "stylesheet", type="text/css", href="styles/qsd.css">
+    
     <title>QSD</title>
   </head>
   <body>
+    <script type = "text/javascript">
+        function checkcode(code)
+        {
+            var inputcode = prompt("Enter the verification code:", "code");            
+            if(inputcode != code)
+            {
+                alert("Your aren't authorized! Please contact to the student.");
+                self.location = 'qsd.php';
+            }
+        }
+    </script>
     <?php      
         session_start();
         $email = $_SESSION['email'];
@@ -22,7 +34,7 @@
             $row = mysqli_fetch_assoc($result);
             $licence = $row['licence'];
             $firstname = $row['firstname'];
-            echo "<h2>Welcome QDS ---- $firstname [$licence]</h2>"; 
+            echo "<h2>Welcome QDS ---- $firstname [$licence]&nbsp&nbsp&nbsp<a style = 'color:red' href='login.html'>Logout</a></h2>";
           }
         }
         mysqli_free_result($result);
@@ -83,26 +95,121 @@
                             $row = mysqli_fetch_assoc($result);
                             $studentL = $row['licence'];
                             $studentname = $row['firstname']." ".$row['surname'];
-                            echo  "<li> <a class = 'newstudent' href = qsd.php?id=",base64_encode($studentL),"&new=1",">",$studentL,"-",$studentname," </a></li>";
+                            echo  "<li> <a  class = 'newstudent' href = qsd.php?id=",base64_encode($studentL),"&new=1",">",$studentL,"-",$studentname," </a></li>";
                         }
                     }                    
                 }
             }
             
-            mysqli_free_result($result);
-            mysqli_close($conn);
+            mysqli_free_result($result);            
         ?>
     </div>
     <div id = "studentDetails">
         <?php
-          if(isset($_GET["id"]))
-          {
-            echo "<p>".base64_decode($_GET["id"])."</p>";
-            echo "<p>".$_GET["new"]."</p>";
-          } 
-          //check completed
-           
-        ?>
+            if(isset($_GET['id']) && isset($_GET['new']))
+            {
+                $licence = base64_decode($_GET["id"]);
+                //Get student's information 
+                $sql = "SELECT * FROM User where licence = '$licence'";
+                $result = mysqli_query($conn, $sql);
+            
+                $firstname = "";
+                $surname = "";
+                $gender = "";
+                $dob = "";
+                $address = "";
+                $suburb = "";
+                $state = "";
+                $post = "";
+                $email = "";
+                $tel = "";
+                $mobile = "";
+                $licence = "";
+                $sc = "";
+                $expiry = "";
+                $held = "";
+                $completed = 0;
+                $code = "";
+
+                if($result)
+                {
+                    if(mysqli_num_rows($result) > 0)
+                    {
+                        $row = mysqli_fetch_assoc($result);
+
+                        $firstname =$row['firstname'];
+                        $surname = $row['surname'];
+                        $code = $row['code'];
+                        
+                        echo "<div id ='studentInfo'>";
+                        if($_GET['new'] == 0)
+                        {
+                            echo "<h3>Student:  ".$firstname." ".$surname."</h3>";
+                        }
+                        else
+                        {                            
+                            echo "<h3>Welcome New Student:  ".$firstname." ".$surname."</h3>";
+                            //check authorization
+                            echo "<script type = 'text/javascript'>checkcode(".$code.");</script>";                            
+                        }
+                        echo "<p>";
+                        echo "Licence: ".$licence = $row['licence'];
+                        echo '&nbsp&nbsp';
+                        echo "Issuing: ".$sc = $row['sc'];
+                        echo '&nbsp&nbsp';
+                        echo "Expiry: ".$expiry = $row['expiry'];
+                        echo '&nbsp&nbsp';
+                        echo "Held: ".$held = $row['held'];
+                        echo "</p>";
+                        echo"<br>";
+
+                        echo "<p>";
+                        echo "Gender: ".$gender = $row['gender'];
+                        echo '&nbsp&nbsp&nbsp&nbsp';
+                        echo "DOB: ".$dob = $row['dob'];
+                        echo "</p>";
+                           
+                        echo "<p>";
+                        echo $address = $row['address'].",";
+                        echo '&nbsp&nbsp';
+                        echo $suburb = $row['suburb'].",";
+                        echo '&nbsp&nbsp';
+                        echo $state = $row['state']."&nbsp";
+                        echo '&nbsp&nbsp';
+                        echo $post = $row['post'];
+                        echo "</p>";
+
+                        echo "<p>";
+                        echo "Email: ".$email = $row['email'];
+                        echo '&nbsp&nbsp&nbsp&nbsp';
+                        echo "Tel: ".$tel = $row['tel'];   
+                        echo '&nbsp&nbsp&nbsp&nbsp';                     
+                        echo "Mobile: ".$mobile = $row['mobile'];
+                        echo "</p>";
+
+                        
+                        $completed = $row['completed'];
+                        if($completed == 0)
+                        {
+                            echo "<form  action = 'record.php' method='post'>";  
+                            echo "<input id = 'record' type = 'submit' name = 'record' value = 'Record...'><br>";
+                            echo "</form>";
+                        }
+                        else
+                        {
+                            echo "<h2 style = 'text-align: center'>Completed!</h2>";
+                        }
+                        echo "</div>";
+                    }
+                }
+                mysqli_free_result($result);
+            }
+            //echo "<p>".base64_decode($_GET["id"])."</p>";
+            //echo "<p>".$_GET["new"]."</p>";
+          
+          
+          mysqli_close($conn);
+        ?>        
     </div>
     
   </body>
