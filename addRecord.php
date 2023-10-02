@@ -10,14 +10,14 @@
   <body>
   <div>    
   <form>
-        <label>Date:</label><input id = "currentdate" type = 'date' name = 'date'><br>        
-        <p>Time</p>
-        <label>Start:</label><input id = "starttime" type = 'time' name = 'starttime'><input type = 'button' value="Start">
-        <label>Finish:</label><input id = "finishtime" type = 'time' name = 'finishtime'><input type = 'button' value="End"><br>
-        <p>Location</p>
+        <label>Date:</label><input id = "currentdate" type = 'date' name = 'date'><br><br>       
+        <a>Time</a><br>
+        <label>Start:</label><input id = "starttime" type = 'time' name = 'starttime'><input type = 'button' value="Start" onclick="getStartTime();">
+        <label>Finish:</label><input id = "finishtime" type = 'time' name = 'finishtime'><input type = 'button' value="End" onclick="getEndTime();"><br><br>
+        <a>Location</a><br>
         <label>Start:</label><input  type = 'text' name = "locationstart">
-        <label>Finish:</label><input type = 'text' name = "locationfinish">
-        <p>Condition</p>
+        <label>Finish:</label><input type = 'text' name = "locationfinish"><br><br>
+        <a>Condition</a><br>
         <label>Road:</label>
             <select name = "road" id = "road">
                 <option value="sealed">Sealed</option>

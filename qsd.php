@@ -190,10 +190,10 @@
                         $completed = $row['completed'];
                         if($completed == 0)
                         {
-                            echo "<form  action = 'addRecord.php' method='post'>";
+                            echo "<form  action = 'addRecord.php' method='post' target = '_blank'>";
                             echo "<input type = 'hidden' name='studentL' value ='".$licence."'>";
                             echo "<input type = 'hidden' name='qsdL' value = '".$qsdlicence."'>";
-                            echo "<input id = 'record' type = 'submit' name = 'record' value = 'Record...' target = '_blank'>";
+                            echo "<input id = 'record' type = 'submit' name = 'record' value = 'Record...'>";
                             echo "</form>";
                         }
                         else
