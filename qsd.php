@@ -198,19 +198,27 @@
                         else
                         {
                             echo "<h2 style = 'text-align: center'>Completed!</h2>";
-                        }
+                        } 
+                        
                         echo "</div>";
+
+                        require_once "inc/qsd_student.php";                        
+                        
                     }
                 }
                 mysqli_free_result($result);
             }
             //echo "<p>".base64_decode($_GET["id"])."</p>";
             //echo "<p>".$_GET["new"]."</p>";
-          
-          
           mysqli_close($conn);
-        ?>        
+        ?>
+
+
+        
+      
+    </div>
     </div>
     
+
   </body>
 </html>

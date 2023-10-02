@@ -39,11 +39,11 @@
     <div id = 'overview'>      
       <caption>MY LOGBOOK(Green)<br>Requirement of Total 4500 mins (Include 900 mins nighttime)</caption><br><br>
       <div id = "progress">
-        <label>Total: Completed: </label>
+        <label>Total  Completed: </label>
         <progress id = "completed" max = "4500", value=<?=$totalCompleted ?>></progress>&nbsp&nbsp<a><?=$totalCompleted ?>/4500min</a><br> 
-        <label>Day&nbsp&nbsp: Completed: </label>
+        <label>Day&nbsp&nbsp  Completed: </label>
         <progress id = "daytimeCompleted" max = "3600", value=<?=$daytimeCompleted ?>></progress>&nbsp&nbsp<a><?=$daytimeCompleted ?>/3600min</a><br>
-        <label>Night: Completed: </label>
+        <label>Night  Completed: </label>
         <progress id = "nighttimeCompleted" max = "900", value=<?=$nighttimeCompleted ?>></progress>&nbsp&nbsp<a><?=$nighttimeCompleted ?>/900min</a><br>   
       </div>
       <br>
