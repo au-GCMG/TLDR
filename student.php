@@ -106,6 +106,6 @@
       </tbody>
       </table>
       <br><a style = "font-size:small">*please click </a><a style = "font-size:small" href="MyFinance.php">'myFinance'</a><a style = "font-size:small">for details</a>
-
+    </div>
   </body>
 </html>

@@ -3,8 +3,7 @@
     <meta charset="utf-8" />
     <meta name="author" content="Shansong Huang" />
     <meta name="description" content="TLDR QSD" />
-    <link rel = "stylesheet", type="text/css", href="styles/qsd.css">
-    
+    <link rel = "stylesheet", type="text/css", href="styles/qsd.css">    
     <title>QSD</title>
   </head>
   <body>
@@ -25,16 +24,16 @@
         require_once "inc/dbconn.inc.php";
         $sql = "SELECT * FROM User where email = '{$email}'";
         $result = mysqli_query($conn, $sql);
-        $licence = "";
+        $qsdlicence = "";
         $firstname = "";
         if($result)
         {
           if(mysqli_num_rows($result) > 0)
           {
             $row = mysqli_fetch_assoc($result);
-            $licence = $row['licence'];
+            $qsdlicence = $row['licence'];
             $firstname = $row['firstname'];
-            echo "<h2>Welcome QDS ---- $firstname [$licence]&nbsp&nbsp&nbsp<a style = 'color:red' href='login.html'>Logout</a></h2>";
+            echo "<h2>Welcome QDS ---- $firstname [$qsdlicence]&nbsp&nbsp&nbsp<a style = 'color:red' href='login.html'>Logout</a></h2>";
           }
         }
         mysqli_free_result($result);
@@ -61,11 +60,11 @@
 
             if($studentL == "")
             {
-                $sql = "SELECT studentL, studentName FROM recordGreen where qsdLicence = '$licence' GROUP BY studentL";
+                $sql = "SELECT studentL, studentName FROM recordGreen where qsdLicence = '$qsdlicence' GROUP BY studentL";
             }
             else
             {
-                $sql = "SELECT studentL, studentName FROM recordGreen where qsdLicence = '$licence' and studentL = '$studentL' GROUP BY studentL";
+                $sql = "SELECT studentL, studentName FROM recordGreen where qsdLicence = '$qsdlicence' and studentL = '$studentL' GROUP BY studentL";
             }
             require_once "inc/dbconn.inc.php";
             $result = mysqli_query($conn, $sql);
@@ -191,8 +190,10 @@
                         $completed = $row['completed'];
                         if($completed == 0)
                         {
-                            echo "<form  action = 'record.php' method='post'>";  
-                            echo "<input id = 'record' type = 'submit' name = 'record' value = 'Record...'><br>";
+                            echo "<form  action = 'addRecord.php' method='post'>";
+                            echo "<input type = 'hidden' name='studentL' value ='".$licence."'>";
+                            echo "<input type = 'hidden' name='qsdL' value = '".$qsdlicence."'>";
+                            echo "<input id = 'record' type = 'submit' name = 'record' value = 'Record...' target = '_blank'>";
                             echo "</form>";
                         }
                         else

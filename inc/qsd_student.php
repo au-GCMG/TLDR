@@ -51,7 +51,7 @@
     echo "<label>Night  Completed: </label>";
     echo "<progress id = 'nighttimeCompleted' max = '900', value=$nighttimeCompleted></progress>&nbsp&nbsp<a>$nighttimeCompleted/900min</a><p></p>";
     echo "</div>";
-    echo "</div>";
+    
 
 
     echo "<table id = 'greenRecord'>";
@@ -120,6 +120,7 @@
         }
     echo "</tbody>";
     echo "</table>";
+    echo "</div>";
  mysqli_free_result($result1);
 
 ?>
