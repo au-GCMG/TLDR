@@ -78,31 +78,34 @@
                 }
 
 
-
-                $sql = "SELECT * FROM sys_salicence WHERE licence = '{$DL}'";
-                $resultSA = mysqli_query($conn, $sql);
-                if($resultSA)
+                if (strtoupper($sc) == 'SA')
                 {
-                    if(mysqli_num_rows($resultSA) <= 0)
+                    $sql = "SELECT * FROM sys_salicence WHERE licence = '{$DL}'";
+                    $resultSA = mysqli_query($conn, $sql);
+                    if($resultSA)
                     {
-                        echo"<a id = 'error'>Your licence number is INVALID/not belong to SA!<br>Please contact to 000<br>The page will be return after 5 seconds.</a>";
-                        header("Refresh:5; login.html");
-                        mysqli_free_result($resultSA);
-                        return;
-                    }
-                    else
-                    {
-                        $row = mysqli_fetch_assoc($resultSA);
-                        if($row['style'] != "L")
+                        if(mysqli_num_rows($resultSA) <= 0)
                         {
-                            echo"<a id = 'error'>Your licence is NOT a Leaning Plate ! You don't need to learn.<br>Please contact to 000<br>The page will be return after 5 seconds.</a>";
+                            echo"<a id = 'error'>Your licence number is INVALID/not belong to SA!<br>Please contact to 000<br>The page will be return after 5 seconds.</a>";
                             header("Refresh:5; login.html");
                             mysqli_free_result($resultSA);
                             return;
                         }
+                        else
+                        {
+                            $row = mysqli_fetch_assoc($resultSA);
+                            if($row['style'] != "L")
+                            {
+                                echo"<a id = 'error'>Your licence is NOT a Leaning Plate ! You don't need to learn.<br>Please contact to 000<br>The page will be return after 5 seconds.</a>";
+                                header("Refresh:5; login.html");
+                                mysqli_free_result($resultSA);
+                                return;
+                            }
+                        }
                     }
+                    mysqli_free_result($resultSA);
                 }
-                mysqli_free_result($resultSA);
+                
 
             }
 

@@ -18,7 +18,7 @@ function getStartTime()
     var mm = ("0" + d.getMinutes()).slice(-2);
     var hh = ("0" + d.getHours()).slice(-2);
     //Assemble, format hh:mm:ss
-    var time = hh + ":" + mm + ":" + ss;
+    var time = hh + ":" + mm + ":00";
     document.getElementById('starttime').value = time;
 }
 
@@ -29,6 +29,6 @@ function getEndTime()
     var mm = ("0" + d.getMinutes()).slice(-2);
     var hh = ("0" + d.getHours()).slice(-2);
     //Assemble, format hh:mm:ss
-    var time = hh + ":" + mm + ":" + ss;
+    var time = hh + ":" + mm + ":00";
     document.getElementById('finishtime').value = time;
 }
