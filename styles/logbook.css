@@ -11,9 +11,9 @@ h2{
     width: 20%;
     height: 90vh;
     float: left;
-    position: absolute;
+    /* position: absolute; */
     padding: 0px;
-    margin: 0px;
+    margin: 0 auto;
     box-sizing: border-box;
     line-height: 1px;
     overflow: auto;
@@ -23,12 +23,12 @@ h2{
     background-color:lightgrey;
     border-color: lightgray;
     border-style:solid;
-    width: 79%;
+    width: 80%;
     height: 90vh;
-    float: right;
+    /* float:left; */
     position: relative;
     padding: 0px;
-    margin: 0px;
+    margin: 0 auto;
     box-sizing: border-box;
     line-height: 1px;
     

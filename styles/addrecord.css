@@ -1,0 +1,27 @@
+#titleArea{
+    text-align: center;
+    margin: 0 auto;
+    background-color: lightgreen;
+    width: 50%;
+}
+
+#dataArea{
+    margin: 0 auto;
+    background-color: lightgreen;
+    width: 50%;
+    font-size: large;
+}
+
+#formData{
+    text-align: left; 
+    float: left;
+    display: inline;
+    background-color: lightgreen;
+    width: 100%;
+}
+
+.user{
+    font-size: medium;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: 10px;
+}

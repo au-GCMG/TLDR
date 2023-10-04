@@ -38,10 +38,11 @@
                             header("location: student.php");
                             break;
                         case "INSTRUCTOR":
-                            header("location: instructor.php");
+                            header("location: search_student.php");
                             break;
                         case "QSD":
-                            header("location: qsd.php");
+                            header("location: search_student.php");
+                            //header("location: qsd.php");
                             break;
                         case "GOVERNMENT":
                             header("location: government.php");
