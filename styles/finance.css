@@ -1,0 +1,110 @@
+h2{
+    /*text-align: center;*/
+    color: rgb(236, 13, 50);
+}
+
+
+#student{
+    background-color: lightgreen;
+    border-color: lightgreen;
+    border-style:solid;
+    width: 20%;
+    height: 90vh;
+    float: left;
+    /* position: absolute; */
+    padding: 0px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    line-height: 1px;
+    overflow: auto;
+}
+
+#studentDetails{
+    background-color:lightgrey;
+    border-color: lightgray;
+    border-style:solid;
+    width: 80%;
+    height: 90vh;
+    /* float:left; */
+    position: relative;
+    padding: 0px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    line-height: 1px;
+    
+}
+
+#studentInfo{
+    display:inline;
+    text-align: left;
+    margin: 0 auto;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+#overview{
+    text-align: center;
+}
+
+#newInvoice{
+    width: 100px;
+    height: 35px;
+    font-size:medium;
+    border-radius: 5px;
+    color: white;
+    background-color: lightcoral;
+}
+
+
+#student li{
+    line-height: 1.5em;
+    list-style: none;
+}
+
+#student li a{    
+    text-decoration: none;
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+
+#student li a:hover{
+    color: #1565c0;
+    text-decoration: none;
+}
+
+.newstudent{
+    background-image: url("../image/new.png");
+    background-size: 40px, 20px;
+    background-repeat: no-repeat;
+    display: block;
+}
+
+
+
+table#paymentRecord{
+    width:  100%;
+    font-family: Arial, Helvetica, sans-serif;
+    border: 1px solid black;
+    text-align: center;
+    display: inline-block;
+}
+table#paymentRecord thead{
+    border: 1px solid black;
+    background-color: lightsalmon;
+    width: 100%;
+    /*display: inline-block;*/
+}
+
+table#paymentRecord tbody{
+    border: 1px solid black;
+    background-color: lightpink;
+    width: 100%;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: lighter;
+    font-size: small;
+    /*display: inline-block;*/
+}
+
+
+
+

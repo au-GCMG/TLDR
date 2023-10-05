@@ -9,11 +9,26 @@
   </head>
   <body>
   <script type = "text/javascript">
-    function next(sl, ls)
+    function nextToLogbook(sl, ls)
     {
       var url= "logbook.php?studentL=" + sl;
       window.open(url);
-      }
+    }
+    function nextToCBT(sl)
+    {
+      var url = "cbt.php?studentL=" + sl;
+      window.open(url);
+    }
+    function nextToAssessment(sl)
+    {
+      var url = "assessment.php?=studentL=" + sl;
+      window.open(url);
+    }
+    function nextToFinance(sl)
+    {
+      var url = "finance.php?studentL=" + sl;
+      window.open(url);
+    }
   </script>
     <?php      
         session_start();
@@ -126,10 +141,10 @@
                         echo "<br>";
                         echo "<div>";
                           echo "<form id = 'buttonArea'>";
-                            echo ('<input type = "button"  onclick="next(\''.base64_encode($licence).'\',\''.$loginstyle.'\')" id = "logbook" class = "instructorButton" value="Logbook" style = "background-color: green;"><br><br>');
-                            echo ('<input type = "button" id = "cbt" class = "instructorButton" value="CBT" style = "background-color: orangered;"><br><br>');
-                            echo ('<input type = "button" id = "ass" class = "instructorButton" value="Assessment" style = "background-color: whitesmoke;"><br><br>');
-                            echo ('<input type = "button" id = "invoice" class = "instructorButton" value = "Finance" style = "background-color: pink;">');
+                            echo ('<input type = "button"  onclick="nextToLogbook(\''.base64_encode($licence).'\',\''.$loginstyle.'\')" id = "logbook" class = "instructorButton" value="Logbook" style = "background-color: green;"><br><br>');
+                            echo ('<input type = "button"  onclick="nextToCBT(\''.base64_encode($licence).'\')" id = "cbt" class = "instructorButton" value="CBT" style = "background-color: orangered;"><br><br>');
+                            echo ('<input type = "button"  onclick="nextToAssessment(\''.base64_encode($licence).'\')" id = "ass" class = "instructorButton" value="Assessment" style = "background-color: whitesmoke;"><br><br>');
+                            echo ('<input type = "button"  onclick="nextToFinance(\''.base64_encode($licence).'\')" id = "finance" class = "instructorButton" value = "Finance" style = "background-color: pink;">');
                           echo "</form>";
                         echo "</div>";
                     }

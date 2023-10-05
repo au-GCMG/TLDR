@@ -3,8 +3,8 @@
     <meta charset="utf-8" />
     <meta name="author" content="Shansong Huang" />
     <meta name="description" content="TLDR QSD" />
-    <link rel = "stylesheet", type="text/css", href="styles/logbook.css">      
-    <title>LOGBOOK</title>
+    <link rel = "stylesheet", type="text/css", href="styles/finance.css">      
+    <title>FINANCE</title>
   </head>
   <body>
     <?php      
@@ -31,7 +31,6 @@
         //mysqli_close($conn);
     ?>
     <hr>
-    
     <div id = "studentDetails">
         <?php
             if(isset($_GET['studentL']))
@@ -110,10 +109,10 @@
                         $completed = $row['completed'];
                         if($completed == 0)
                         {
-                            echo "<form  action = 'logbook_add.php' method='post'>";
+                            echo "<form  action = 'finance_add.php' method='post'>";
                             echo "<input type = 'hidden' name='studentL' value ='".$licence."'>";
                             echo "<input type = 'hidden' name='userL' value = '".$userlicence."'>";
-                            echo "<input id = 'record' type = 'submit' name = 'record' value = 'Record...'>";
+                            echo "<input id = 'newInvoice' type = 'submit' name = 'newInvoice' value = 'Add...'>";
                             echo "</form>";
                         }
                         else
@@ -122,16 +121,17 @@
                         } 
                         
                         echo "</div>";
-                        require_once "inc/logbook_detail.php";
+                        echo "<hr><br>";
+                        require_once "inc/finance_detail.php";
                     }
                 }
                 mysqli_free_result($result);
             }
-            //echo "<p>".base64_decode($_GET["id"])."</p>";
-            //echo "<p>".$_GET["new"]."</p>";
           mysqli_close($conn);
         ?>
       </div>
     </div>
+
+
   </body>
 </html>

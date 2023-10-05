@@ -3,10 +3,10 @@
     <meta charset="utf-8" />
     <meta name="author" content="Shansong Huang" />
     <meta name="description" content="TLDR QSD ADD RECORD" />
-    <link rel = "stylesheet", type="text/css", href="styles/logbook_add.css"> 
+    <link rel = "stylesheet", type="text/css", href="styles/finance_add.css"> 
     <script src="scripts/logbook_add.js"></script>
     <script src="scripts/gps.js"></script>
-    <title>Add Record</title>
+    <title>New Invoice</title>
   </head>
   <body>
     <script>
@@ -22,7 +22,7 @@
     </script>
     <?php
         $studentL = $_POST['studentL'];
-        $qsdL = $_POST['userL'];
+        $payeeL = $_POST['userL'];
         require_once "inc/dbconn.inc.php";
         $sql = "SELECT * FROM User where licence = '$studentL'";
         $result = mysqli_query($conn, $sql);        
@@ -40,7 +40,7 @@
           }
         }
         mysqli_free_result($result);
-        $sql = "SELECT * FROM User where licence = '$qsdL'";
+        $sql = "SELECT * FROM User where licence = '$payeeL'";
         $result = mysqli_query($conn, $sql);        
         $firstname = "";
         $surname = "";
@@ -65,10 +65,10 @@
             <form  id = "formID" action="inc/logbook_save.php" method="post"> 
                 <input type = "hidden" name = "studentl" value="<?=$studentL?>">           
                 <input type = "hidden" name = "studentname" value="<?=$studentfullname?>">
-                <input type = "hidden" name = "qsdlicence" value="<?=$qsdL?>">
-                <input type = "hidden" name = "qsdname" value="<?=$userfullname?>">
+                <input type = "hidden" name = "payeel" value="<?=$payeeL?>">
+                <input type = "hidden" name = "payeename" value="<?=$userfullname?>">
                 <label>Date:</label><input class = "user" id = "currentdate" type = 'date' name = 'date' required><br><br>       
-                <a>Time</a><br>
+                <!-- <a>Time</a><br>
                 <label>Start:</label><input class = "user" id = "starttime" type = 'time' required name = 'starttime' value = "00:00">&nbsp&nbsp<input class = "user" type = 'button' value="Start" onclick="getStartTime();">&nbsp&nbsp&nbsp&nbsp
                 <label>Finish:</label><input class = "user" id = "finishtime" type = 'time' required name = 'finishtime' value = "00:00">&nbsp&nbsp<input class = "user" type = 'button' value="End" onclick="getEndTime();"><br><br>
                 <a>Location</a>&nbsp&nbsp<input class = "user" type = "button" value = "Activate GPS" onclick = "gps();"><br><br>
@@ -97,7 +97,7 @@
                 <p></p>
                 <script>init();</script>
                 <input class = "user" type="submit" name = "submit" id = "submit" style ="width:100px; height:35px; text-align: center">
-                <input class = "user" type="submit" name = "closesubmit" id = "closesubmit" value = "Close" style ="width:100px; height:35px; text-align: center" onclick="closePage()">
+                <input class = "user" type="submit" name = "closesubmit" id = "closesubmit" value = "Close" style ="width:100px; height:35px; text-align: center" onclick="closePage()"> -->
             </form>
         </div>
     

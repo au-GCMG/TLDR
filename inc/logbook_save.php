@@ -18,13 +18,21 @@ $studentSignature = 0;
 $qsdSignature = 1;
 $sql = "INSERT INTO RecordGreen(studentL,studentName,date,startTime,finishTime,duration,fromLocation,toLocation,road,weather,traffic,qsdName,qsdLicence,studentSignature,qsdSignature) VALUES";
 $sql = $sql."('".$studentL."','".$studentName."','".$date."','".$startTime."','".$finishTime."','".$duration."','".$fromLocation."','".$toLocation."','".$road."','".$weather."','".$traffic."','".$qsdName."','".$qsdLicence."','".$studentSignature."','".$qsdSignature."')";
-$result = mysqli_query($conn, $sql);
+if($duration > 0)
+{
+    $result = mysqli_query($conn, $sql);
 //echo $sql;
 if($result)
 {
     //echo '<script>window.close();</script>';
     $url = "../logbook.php?studentL=".base64_encode($studentL);
     header("location: $url");
+}
+}
+else
+{
+    echo "The time of finishing is earlier than the time of startting.";
+    
 }
 
 ?>
