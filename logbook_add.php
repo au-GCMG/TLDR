@@ -3,8 +3,8 @@
     <meta charset="utf-8" />
     <meta name="author" content="Shansong Huang" />
     <meta name="description" content="TLDR QSD ADD RECORD" />
-    <link rel = "stylesheet", type="text/css", href="styles/addrecord.css"> 
-    <script src="scripts/addRecord.js"></script>
+    <link rel = "stylesheet", type="text/css", href="styles/logbook_add.css"> 
+    <script src="scripts/logbook_add.js"></script>
     <script src="scripts/gps.js"></script>
     <title>Add Record</title>
   </head>
@@ -22,7 +22,7 @@
     </script>
     <?php
         $studentL = $_POST['studentL'];
-        $qsdL = $_POST['qsdL'];
+        $qsdL = $_POST['userL'];
         require_once "inc/dbconn.inc.php";
         $sql = "SELECT * FROM User where licence = '$studentL'";
         $result = mysqli_query($conn, $sql);        
@@ -36,17 +36,37 @@
             $row = mysqli_fetch_assoc($result);
             $surname = $row['surname'];
             $firstname = $row['firstname'];
-            $fullname = $firstname." ". $surname;
+            $studentfullname = $firstname." ". $surname;
+          }
+        }
+        mysqli_free_result($result);
+        $sql = "SELECT * FROM User where licence = '$qsdL'";
+        $result = mysqli_query($conn, $sql);        
+        $firstname = "";
+        $surname = "";
+        $userfullname = "";
+        if($result)
+        {
+          if(mysqli_num_rows($result) > 0)
+          {
+            $row = mysqli_fetch_assoc($result);
+            $surname = $row['surname'];
+            $firstname = $row['firstname'];
+            $userfullname = $firstname." ". $surname;
           }
         }
         mysqli_free_result($result);
     ?>
     <div id = "titleArea">
-        <h2>To Student: <?=$fullname?></h2>
+        <h2>To Student: <?=$studentfullname?></h2>
     </div>
     <div id = "dataArea">   
         <div id = "formData"> 
-            <form  id = "formID" action="inc/add.php" method="post">            
+            <form  id = "formID" action="inc/logbook_save.php" method="post"> 
+                <input type = "hidden" name = "studentl" value="<?=$studentL?>">           
+                <input type = "hidden" name = "studentname" value="<?=$studentfullname?>">
+                <input type = "hidden" name = "qsdlicence" value="<?=$qsdL?>">
+                <input type = "hidden" name = "qsdname" value="<?=$userfullname?>">
                 <label>Date:</label><input class = "user" id = "currentdate" type = 'date' name = 'date' required><br><br>       
                 <a>Time</a><br>
                 <label>Start:</label><input class = "user" id = "starttime" type = 'time' required name = 'starttime' value = "00:00">&nbsp&nbsp<input class = "user" type = 'button' value="Start" onclick="getStartTime();">&nbsp&nbsp&nbsp&nbsp

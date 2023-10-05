@@ -116,22 +116,20 @@
 
                         
                         $completed = $row['completed'];
-                        if($completed == 0)
-                        {                           
+                        if($completed == 1)
+                        {    
+                          echo "<h2 style = 'text-align: center'>Completed!</h2>";                       
                         }
-                        else
-                        {
-                            echo "<h2 style = 'text-align: center'>Completed!</h2>";
-                        } 
                         
                         echo "</div>";
                         echo "<br>";    
                         echo "<br>";
                         echo "<div>";
                           echo "<form id = 'buttonArea'>";
-                            echo ('<input type = "button"  onclick="next(\''.base64_encode($licence).'\',\''.$loginstyle.'\')" id = "logbook" class = "instructorButton" value="Logbook-Record" style = "background-color: green;"><br><br>');
-                            echo ('<input type = "button" id = "cbt" class = "instructorButton" value="CBT-Record" style = "background-color: orangered;"><br><br>');
-                            echo ('<input type = "button" id = "invoice" class = "instructorButton" value = "Invocie" style = "background-color: pink;">');
+                            echo ('<input type = "button"  onclick="next(\''.base64_encode($licence).'\',\''.$loginstyle.'\')" id = "logbook" class = "instructorButton" value="Logbook" style = "background-color: green;"><br><br>');
+                            echo ('<input type = "button" id = "cbt" class = "instructorButton" value="CBT" style = "background-color: orangered;"><br><br>');
+                            echo ('<input type = "button" id = "ass" class = "instructorButton" value="Assessment" style = "background-color: whitesmoke;"><br><br>');
+                            echo ('<input type = "button" id = "invoice" class = "instructorButton" value = "Finance" style = "background-color: pink;">');
                           echo "</form>";
                         echo "</div>";
                     }

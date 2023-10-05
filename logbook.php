@@ -110,9 +110,9 @@
                         $completed = $row['completed'];
                         if($completed == 0)
                         {
-                            echo "<form  action = 'addRecord.php' method='post' target = '_blank'>";
+                            echo "<form  action = 'logbook_add.php' method='post'>";
                             echo "<input type = 'hidden' name='studentL' value ='".$licence."'>";
-                            echo "<input type = 'hidden' name='qsdL' value = '".$userlicence."'>";
+                            echo "<input type = 'hidden' name='userL' value = '".$userlicence."'>";
                             echo "<input id = 'record' type = 'submit' name = 'record' value = 'Record...'>";
                             echo "</form>";
                         }

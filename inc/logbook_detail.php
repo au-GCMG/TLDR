@@ -5,6 +5,7 @@
     $totalNosign = 0;
     $daytimeNosign = 0;
     $nighttimeNosign = 0;
+    $totalNosign = 0;
 
     //extract the data from logbook database(recordgreen)
     $sql = "SELECT SUM(duration) AS durations FROM recordgreen where studentL = '{$licence}' and studentSignature = 1 and qsdSignature = 1 and startTime < '18:00:00'";
@@ -25,7 +26,7 @@
 
     $sql = "SELECT SUM(duration) AS durations FROM recordgreen where studentL = '{$licence}' and studentSignature = 1 and qsdSignature = 1 and startTime >= '18:00:00'";
     $result2 = mysqli_query($conn, $sql);
-    if($result1)
+    if($result2)
     {
       if(mysqli_num_rows($result2) > 0)
       {
@@ -39,6 +40,23 @@
     }
     mysqli_free_result($result2);
 
+
+    $sql = "SELECT SUM(duration) AS durations FROM recordgreen where studentL = '{$licence}' and studentSignature = 0 and qsdSignature = 1";
+    $result3 = mysqli_query($conn, $sql);
+    if($result3)
+    {
+      if(mysqli_num_rows($result3) > 0)
+      {
+        $row = mysqli_fetch_assoc($result3);
+        $totalNosign = $row['durations'];
+      }
+    }
+    if(empty($totalNosign))
+    {
+      $totalNosign = 0;
+    }
+    mysqli_free_result($result3);
+
     $totalCompleted = $daytimeCompleted + $nighttimeCompleted;
     echo "<div id = 'overview'>"; 
     echo "<hr>";
@@ -50,6 +68,8 @@
     echo "<progress id = 'daytimeCompleted' max = '3600', value=$daytimeCompleted></progress>&nbsp&nbsp<a>$daytimeCompleted/3600min</a><p></p>";
     echo "<label>Night  Completed: </label>";
     echo "<progress id = 'nighttimeCompleted' max = '900', value=$nighttimeCompleted></progress>&nbsp&nbsp<a>$nighttimeCompleted/900min</a><p></p>";
+    echo "<label>Nosign: </label>";
+    echo "<progress id = 'totalnosign' max = '4500', value=$totalNosign></progress>&nbsp&nbsp<a>$totalNosign mins</a><p></p>";
     echo "</div>";
     
 

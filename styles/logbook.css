@@ -84,6 +84,7 @@ table#greenRecord{
     border: 1px solid black;
     text-align: center;
     display: inline-block;
+    overflow-y: auto;
 }
 table#greenRecord thead{
     border: 1px solid black;
