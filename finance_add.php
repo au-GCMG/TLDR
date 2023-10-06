@@ -19,6 +19,16 @@
                 window.close();
             }
         }
+        function calculate()
+        {
+          
+          var unit = document.getElementById("unit").value;
+          var unitprice = document.getElementById("unitprice").value;
+          var amount = (unit * unitprice).toFixed(2);
+          document.getElementById("amount").value = amount;
+          document.getElementById("tax").value = (amount * 0.1).toFixed(2);
+          alert(amount);
+        }
     </script>
     <?php
         $studentL = $_POST['studentL'];
@@ -62,43 +72,26 @@
     </div>
     <div id = "dataArea">   
         <div id = "formData"> 
-            <form  id = "formID" action="inc/logbook_save.php" method="post"> 
+            <form  id = "formID" action="inc/finance_save.php" method="post"> 
                 <input type = "hidden" name = "studentl" value="<?=$studentL?>">           
                 <input type = "hidden" name = "studentname" value="<?=$studentfullname?>">
                 <input type = "hidden" name = "payeel" value="<?=$payeeL?>">
                 <input type = "hidden" name = "payeename" value="<?=$userfullname?>">
                 <label>Date:</label><input class = "user" id = "currentdate" type = 'date' name = 'date' required><br><br>       
-                <!-- <a>Time</a><br>
-                <label>Start:</label><input class = "user" id = "starttime" type = 'time' required name = 'starttime' value = "00:00">&nbsp&nbsp<input class = "user" type = 'button' value="Start" onclick="getStartTime();">&nbsp&nbsp&nbsp&nbsp
-                <label>Finish:</label><input class = "user" id = "finishtime" type = 'time' required name = 'finishtime' value = "00:00">&nbsp&nbsp<input class = "user" type = 'button' value="End" onclick="getEndTime();"><br><br>
-                <a>Location</a>&nbsp&nbsp<input class = "user" type = "button" value = "Activate GPS" onclick = "gps();"><br><br>
-                <label>Start:</label><input  class = "user" type = 'text' name = "locationstart" required>
-                <label>Finish:</label><input class = "user" type = 'text' name = "locationfinish" required><br><br>
-                <a>Condition</a><br>
-                <label>Road:</label>
-                <select class = "user" name = "road" id = "road" required>
-                        <option value="sealed">Sealed</option>
-                        <option value="unsealed">Unsealed</option>
-                        <option value ="quiet street">Quiet Street</option>
-                        <option value="busy road">Busy Road</option>
-                        <option value="multi-laned road">Multi-laned Road</option>
-                </select>
-                <label>Weather:</label>
-                <select class = "user" name="weather" id="weather" required>
-                    <option value="dry">Dry</option>
-                    <option value="wet">Wet</option>
-                </select>
-                <label>Traffic:</label>
-                <select class = "user" name="traffic" id = "traffic" required>
-                    <option value="light">Light</option>
-                    <option value="medium">Medium</option>
-                    <option value="heavy">Heavy</option>
-                </select>
-                <p></p>
+                <label>Desc:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</label>
+                <select class = "user" name = "description">
+                  <option value = "cbt training">CBT Training</option>
+                  <option value = "assessment training">Assessment Training</option>
+                  <option value = "logbook training">Logbook Training</option>
+                </select><br><br>
+                <label>Unit:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</label><input class = "user" id = "unit" type = 'number' required name = 'unit' value = "1">&nbsp<label>hours</label><br><br>
+                <label>UnitPrice: $</label><input class = "user" id = "unitprice" type = 'number' required name = 'unitprice' value = "100.00" onchange ="calculate()">&nbsp<label>/hour</label><br><br>
+                <label>Amount:     &nbsp&nbsp$</label><input class = "user" id = "amount" type = "number" name = "amount" value = "100.00" required><br><br>
+                <label>Tax: $ </label><input type = "text" name = "tax" id = "tax" value = "10.00" required readonly ><br><br>
                 <script>init();</script>
                 <input class = "user" type="submit" name = "submit" id = "submit" style ="width:100px; height:35px; text-align: center">
-                <input class = "user" type="submit" name = "closesubmit" id = "closesubmit" value = "Close" style ="width:100px; height:35px; text-align: center" onclick="closePage()"> -->
-            </form>
+                <input class = "user" type="submit" name = "closesubmit" id = "closesubmit" value = "Close" style ="width:100px; height:35px; text-align: center" onclick="closePage()">
+             </form>
         </div>
     
     </div>

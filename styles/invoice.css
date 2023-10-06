@@ -35,7 +35,7 @@
     background-color: pink;
     margin: 0 auto;
     width: 640px;
-    height: 100px;
+    height: 110px;
     display: block;
 }
 #student{
@@ -43,7 +43,7 @@
     font-family: 'Courier New', Courier, monospace;     
     background-color: pink;      
     width: 305px;
-    height: 80px;
+    height: 90px;
     margin-left: 15px;
     display:inline-block;
 }
@@ -52,7 +52,7 @@
     font-family: 'Courier New', Courier, monospace;
     background-color: pink;      
     width: 305px;
-    height: 80px;
+    height: 90px;
     display:inline-block;
 }
 

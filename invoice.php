@@ -118,6 +118,7 @@
             <a><?=$payeepost?></a>
         </div>
     </div>
+    <br style = "background-color:pink">
     <hr>
     <div id = "invoiceTable">           
         <table id = "content">

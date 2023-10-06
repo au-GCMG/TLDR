@@ -6,7 +6,7 @@ $studentName = str_replace(","," ",strtoupper($_POST['studentname']));
 $date = $_POST['date'];
 $startTime = date('H:i:s',strtotime($_POST['starttime']));
 $finishTime = date('H:i:s',strtotime($_POST['finishtime']));
-$duration = (strtotime($finishTime) - strtotime($startTime))/60;
+$duration = (strtotime($finishTime) - strtotime($startTime))/3600;
 $fromLocation = str_replace(","," ", strtoupper($_POST['locationstart']));
 $toLocation = str_replace(","," ", strtoupper($_POST['locationfinish']));
 $road = strtoupper($_POST['road']);
@@ -22,12 +22,12 @@ if($duration > 0)
 {
     $result = mysqli_query($conn, $sql);
 //echo $sql;
-if($result)
-{
+    if($result)
+    {
     //echo '<script>window.close();</script>';
-    $url = "../logbook.php?studentL=".base64_encode($studentL);
-    header("location: $url");
-}
+        $url = "../logbook.php?studentL=".base64_encode($studentL);
+        header("location: $url");
+    }
 }
 else
 {
