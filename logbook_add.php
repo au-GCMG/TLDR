@@ -19,6 +19,7 @@
                 window.close();
             }
         }
+        
     </script>
     <?php
         $studentL = $_POST['studentL'];
@@ -67,13 +68,15 @@
                 <input type = "hidden" name = "studentname" value="<?=$studentfullname?>">
                 <input type = "hidden" name = "qsdlicence" value="<?=$qsdL?>">
                 <input type = "hidden" name = "qsdname" value="<?=$userfullname?>">
+                <input type = "hidden" name = "gpsnumber" id = "gpsnumber" value="0">
                 <label>Date:</label><input class = "user" id = "currentdate" type = 'date' name = 'date' required><br><br>       
                 <a>Time</a><br>
                 <label>Start:</label><input class = "user" id = "starttime" type = 'time' required name = 'starttime' value = "00:00">&nbsp&nbsp<input class = "user" type = 'button' value="Start" onclick="getStartTime();">&nbsp&nbsp&nbsp&nbsp
                 <label>Finish:</label><input class = "user" id = "finishtime" type = 'time' required name = 'finishtime' value = "00:00">&nbsp&nbsp<input class = "user" type = 'button' value="End" onclick="getEndTime();"><br><br>
-                <a>Location</a>&nbsp&nbsp<input class = "user" type = "button" value = "Activate GPS" onclick = "gps();"><br><br>
-                <label>Start:</label><input  class = "user" type = 'text' name = "locationstart" required>
-                <label>Finish:</label><input class = "user" type = 'text' name = "locationfinish" required><br><br>
+                <a>Location</a>&nbsp&nbsp<input class = "user" type = "button" value = "Activate GPS" onclick = "gps();">&nbsp&nbsp
+                <input type = "button" value = "Clear GPS" onclick="clear()"><br><br>
+                <label>Start:</label><input  class = "user" type = 'text' name = "locationstart" id = "locationstart" required>
+                <label>Finish:</label><input class = "user" type = 'text' name = "locationfinish" id = "locationfinish" required><br><br>
                 <a>Condition</a><br>
                 <label>Road:</label>
                 <select class = "user" name = "road" id = "road" required>

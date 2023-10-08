@@ -79,15 +79,21 @@
     <script>
         function initialize()
         {
+            var startMarker, finishMarker;
             
+            var data = <?php echo json_encode($data); ?>;
+
+            var centerlatlng = data[0].split(",",2);
+            var centerLat = parseFloat(centerlatlng[0]);
+            var centerLng = parseFloat(centerlatlng[1]);
+
             var mapOptions = {
                 zoom:18,
-                center: new google.maps.LatLng(-35.010258, 138.572807),
+                center: new google.maps.LatLng(centerLat , centerLng),
                 mapTypeId: google.maps.MapTypeId.hybrid
-            };
-            var startMarker, finishMarker;
+            };     
+
             var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
-            var data = <?php echo json_encode($data); ?>;
             
             if(data.length != 0)
             {
