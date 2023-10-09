@@ -142,19 +142,13 @@ CREATE user IF NOT EXISTS dbadmin@localhost;
 GRANT all privileges ON TLDR.sys_task TO dbadmin@localhost;
 
 CREATE user IF NOT EXISTS dbadmin@localhost;
-GRANT all privileges ON TLDR.sys_item TO dbadmin@localhost;
-
-CREATE user IF NOT EXISTS dbadmin@localhost;
-GRANT all privileges ON TLDR.sys_unit TO dbadmin@localhost;
-
-CREATE user IF NOT EXISTS dbadmin@localhost;
-GRANT all privileges ON TLDR.sys_task TO dbadmin@localhost;
+GRANT all privileges ON TLDR.sys_subtask TO dbadmin@localhost;
 
 CREATE user IF NOT EXISTS dbadmin@localhost;
 GRANT all privileges ON TLDR.sys_item TO dbadmin@localhost;
 
 CREATE user IF NOT EXISTS dbadmin@localhost;
-GRANT all privileges ON TLDR.homeworkcompletion TO dbadmin@locaalhost;
+GRANT all privileges ON TLDR.homeworkcompletion TO dbadmin@localhost;
 
 -- Example
 

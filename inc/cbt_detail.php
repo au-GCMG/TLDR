@@ -2,10 +2,8 @@
   <head>
     <meta charset="utf-8" />
     <meta name="author" content="Shansong Huang" />
-    <meta name="description" content="TLDR student/MyCBT" />
-    <link rel = "stylesheet", type="text/css", href="styles/student.css">
-    <script src="scripts/studentMenu.js" defer></script>
-    <title>MyCBT</title>
+    <meta name="description" content="TLDR cbt_detail" />
+    <title>CBT</title>
   </head>
   <body>
     <?php
@@ -40,28 +38,6 @@
     }
     ?>
     
-    
-    <?php
-        session_start();
-        $email = $_SESSION['email'];
-        require_once "inc/dbconn.inc.php";
-        $sql = "SELECT * FROM User where email = '{$email}'";
-        $result = mysqli_query($conn, $sql);
-        $licence = "";
-        $firstname = "";
-        if($result)
-        {
-          if(mysqli_num_rows($result) > 0)
-          {
-            $row = mysqli_fetch_assoc($result);
-            $licence = $row['licence'];
-            $firstname = $row['firstname']; 
-            echo "<h2>Welcome $firstname ($licence)</h2>";          
-            require_once "inc/menu.inc.php";
-          }
-        }
-        mysqli_free_result($result);       
-    ?>
     <div id = "unitArea">
       <?php
          $sql = "SELECT * FROM sys_unit";
@@ -81,7 +57,7 @@
             while ($row = mysqli_fetch_assoc($result))
             {
               echo "<tr>";
-              echo "<th><a href = MyCBT.php?unitid=",$row['id'],">",$row['unitNO'],"</a></th>";
+              echo "<th><a href = cbt.php?studentL=",base64_encode($licence),"&unitid=",$row['id'],">",$row['unitNO'],"</a></th>";
               echo "<th>",$row['description'],"</th>";
               echo "</tr>";
             }
@@ -114,7 +90,7 @@
               while($row = mysqli_fetch_assoc($result))
               {
                 echo "<tr>";
-                echo "<th><a href = MyCBT.php?unitid=",$row['unitid'],"&taskid=",$row['id'],">",$row['taskNO'],"</a></th>";
+                echo "<th><a href = cbt.php?studentL=",base64_encode($licence),"&unitid=",$row['unitid'],"&taskid=",$row['id'],">",$row['taskNO'],"</a></th>";
                 echo "<th>",$row['description'],"</th>";
                 echo "</tr>";
               }
@@ -148,7 +124,7 @@
               while($row = mysqli_fetch_assoc($result))
               {
                 echo "<tr>";
-                echo "<th><a href = MyCBT.php?unitid=",$_GET['unitid'],"&taskid=",$_GET['taskid'],"&subtaskid=",$row['id'],">",$row['subtaskNO'],"</a></th>";
+                echo "<th><a href = cbt.php?studentL=",base64_encode($licence),"&unitid=",$_GET['unitid'],"&taskid=",$_GET['taskid'],"&subtaskid=",$row['id'],">",$row['subtaskNO'],"</a></th>";
                 echo "<th>",$row['subtaskname'],"</th>";
                 echo "</tr>";
               }
@@ -189,12 +165,12 @@
                 switch (Iscompleted($row['id'], $licence))
                 {
                   case 0:
-                    echo "<th><a href = 'inc/homework_sign.php?unitid=".$_GET['unitid']."&taskid=".$_GET['taskid']."&subtaskid=".$_GET['subtaskid']."&itemid=".$row['id']."&sign=2&l=".base64_encode($licence)."'>Sign</a></th>";
-                    echo "<th><a href = 'inc/homework_sign.php?unitid=".$_GET['unitid']."&taskid=".$_GET['taskid']."&subtaskid=".$_GET['subtaskid']."&itemid=".$row['id']."&sign=2&l=".base64_encode($licence)."'>Sign</a></th>";   
+                    echo "<th></th>";
+                    echo "<th></th>";   
                     break;
                   case 1:
                     echo "<th>Y</th>";
-                    echo "<th><a href = 'inc/homework_sign.php?unitid=".$_GET['unitid']."&taskid=".$_GET['taskid']."&subtaskid=".$_GET['subtaskid']."&itemid=".$row['id']."&sign=1&l=".base64_encode($licence)."'>Sign</a></th>";
+                    echo "<th></th>";
                     break;
                   case 2:
                     echo "<th>Y</th>";
@@ -237,12 +213,12 @@
                   switch (Iscompleted($row['id'], $licence))
                   {
                     case 0:
-                      echo "<th><a href = 'inc/homework_sign.php?unitid=".$_GET['unitid']."&taskid=".$_GET['taskid']."&itemid=".$row['id']."&sign=2&l=".base64_encode($licence)."'>Sign</a></th>";
-                      echo "<th><a href = 'inc/homework_sign.php?unitid=".$_GET['unitid']."&taskid=".$_GET['taskid']."&itemid=".$row['id']."&sign=2&l=".base64_encode($licence)."'>Sign</a></th>";
+                      echo "<th></th>";
+                      echo "<th></th>";
                       break;
                     case 1:
                       echo "<th>Y</th>";
-                      echo "<th><a href = 'inc/homework_sign.php?unitid=".$_GET['unitid']."&taskid=".$_GET['taskid']."&itemid=".$row['id']."&sign=1&l=".base64_encode($licence)."'>Sign</a></th>";
+                      echo "<th></th>";
                       break;
                     case 2:
                       echo "<th>Y</th>";
@@ -261,7 +237,7 @@
           
         //mysqli_free_result($result);
         // }
-        mysqli_close($conn);
+        //mysqli_close($conn);
       ?>
     </div>
 

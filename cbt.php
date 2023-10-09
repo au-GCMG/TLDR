@@ -2,9 +2,9 @@
   <head>
     <meta charset="utf-8" />
     <meta name="author" content="Shansong Huang" />
-    <meta name="description" content="TLDR FINANCE" />
-    <link rel = "stylesheet", type="text/css", href="styles/finance.css">      
-    <title>FINANCE</title>
+    <meta name="description" content="TLDR CBT" />
+    <link rel = "stylesheet", type="text/css", href="styles/cbt.css">      
+    <title>CBT</title>
   </head>
   <body>
     <?php      
@@ -111,8 +111,7 @@
                         {
                             echo "<form  action = 'finance_add.php' method='post'>";
                             echo "<input type = 'hidden' name='studentL' value ='".$licence."'>";
-                            echo "<input type = 'hidden' name='userL' value = '".$userlicence."'>";
-                            echo "<input id = 'newInvoice' type = 'submit' name = 'newInvoice' value = 'Add...'>";
+                            echo "<input type = 'hidden' name='userL' value = '".$userlicence."'>";                           
                             echo "</form>";
                         }
                         else
@@ -122,10 +121,11 @@
                         
                         echo "</div>";
                         echo "<hr><br>";
-                        require_once "inc/finance_detail.php";
+                        echo "<div id ='detail'>";
+                        require_once "inc/cbt_detail.php";
+                        echo "</div>";
                     }
                 }
-                mysqli_free_result($result);
             }
           mysqli_close($conn);
         ?>
