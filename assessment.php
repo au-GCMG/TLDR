@@ -2,34 +2,11 @@
   <head>
     <meta charset="utf-8" />
     <meta name="author" content="Shansong Huang" />
-    <meta name="description" content="TLDR QSD" />
-    <link rel = "stylesheet", type="text/css", href="styles/student_info.css">
-    <link rel = "stylesheet", type="text/css", href="styles/instructor.css">      
-    <title>STUDENT-INFO</title>
+    <meta name="description" content="TLDR ASSESSMENT" />
+    <link rel = "stylesheet", type="text/css", href="styles/assessment.css">      
+    <title>ASSESSMENT</title>
   </head>
   <body>
-  <script type = "text/javascript">
-    function nextToLogbook(sl, ls)
-    {
-      var url= "logbook.php?studentL=" + sl;
-      window.open(url);
-    }
-    function nextToCBT(sl)
-    {
-      var url = "cbt.php?studentL=" + sl;
-      window.open(url);
-    }
-    function nextToAssessment(sl)
-    {
-      var url = "assessment.php?studentL=" + sl;
-      window.open(url);
-    }
-    function nextToFinance(sl)
-    {
-      var url = "finance.php?studentL=" + sl;
-      window.open(url);
-    }
-  </script>
     <?php      
         session_start();
         $email = $_SESSION['email'];
@@ -54,7 +31,6 @@
         //mysqli_close($conn);
     ?>
     <hr>
-    
     <div id = "studentDetails">
         <?php
             if(isset($_GET['studentL']))
@@ -131,37 +107,33 @@
 
                         
                         $completed = $row['completed'];
-                        if($completed == 1)
-                        {    
-                          echo "<h2 style = 'text-align: center'>Completed!</h2>";                       
+                        if($completed == 0)
+                        {
+                            echo "<form  action = 'finance_add.php' method='post'>";
+                            echo "<input type = 'hidden' name='studentL' value ='".$licence."'>";
+                            echo "<input type = 'hidden' name='userL' value = '".$userlicence."'>";
+                            //echo "<input id = 'newInvoice' type = 'submit' name = 'newInvoice' value = 'Add...'>";
+                            echo "</form>";
                         }
+                        else
+                        {
+                            echo "<h2 style = 'text-align: center'>Completed!</h2>";
+                        } 
                         
                         echo "</div>";
-                        echo "<br>";    
-                        echo "<br>";
-                        echo "<div>";
-                          echo "<form id = 'buttonArea'>";
-                            echo ('<input type = "button"  onclick="nextToLogbook(\''.base64_encode($licence).'\',\''.$loginstyle.'\')" id = "logbook" class = "instructorButton" value="Logbook" style = "background-color: green;"><br><br>');
-                            echo ('<input type = "button"  onclick="nextToCBT(\''.base64_encode($licence).'\')" id = "cbt" class = "instructorButton" value="CBT" style = "background-color: orangered;"><br><br>');
-                            echo ('<input type = "button"  onclick="nextToAssessment(\''.base64_encode($licence).'\')" id = "ass" class = "instructorButton" value="Assessment" style = "background-color: whitesmoke;"><br><br>');
-                            echo ('<input type = "button"  onclick="nextToFinance(\''.base64_encode($licence).'\')" id = "finance" class = "instructorButton" value = "Finance" style = "background-color: pink;">');
-                          echo "</form>";
-                        echo "</div>";
+                        echo "<hr><br>";
+
+                        //add detail of assessment,instead of 'finance_detail.php' and put the php's file into the folder of inc
+                        //require_once "inc/finance_detail.php";
                     }
                 }
                 mysqli_free_result($result);
             }
-            //echo "<p>".base64_decode($_GET["id"])."</p>";
-            //echo "<p>".$_GET["new"]."</p>";
           mysqli_close($conn);
         ?>
-
-
-        
-      
+      </div>
     </div>
-    </div>
-    
+
 
   </body>
 </html>
