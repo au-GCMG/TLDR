@@ -84,7 +84,7 @@
                   <option value = "assessment training">Assessment Training</option>
                   <option value = "logbook training">Logbook Training</option>
                 </select><br><br>
-                <label>Unit:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</label><input class = "user" id = "unit" type = 'number' required name = 'unit' value = "1">&nbsp<label>hours</label><br><br>
+                <label>Unit:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</label><input class = "user" id = "unit" type = 'number' required name = 'unit' value = "1" onchange = "calculate()">&nbsp<label>hours</label><br><br>
                 <label>UnitPrice: $</label><input class = "user" id = "unitprice" type = 'number' required name = 'unitprice' value = "100.00" onchange ="calculate()">&nbsp<label>/hour</label><br><br>
                 <label>Amount:     &nbsp&nbsp$</label><input class = "user" id = "amount" type = "number" name = "amount" value = "100.00" required><br><br>
                 <label>Tax: $ </label><input type = "text" name = "tax" id = "tax" value = "10.00" required readonly ><br><br>

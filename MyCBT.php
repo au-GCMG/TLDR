@@ -106,7 +106,7 @@
               echo "<table id = 'task'>";
               echo "<thead>";
                 echo "<tr>";
-                  echo "<th>Task</th>";
+                  echo "<th>Task(Unit",$_GET['unitid'],")</th>";
                   echo "<th>Description</th>";
                 echo "</tr>";
               echo "</thead>";
@@ -140,7 +140,7 @@
               echo "<table id = 'subtask'>";
               echo "<thead>";
                 echo "<tr>";
-                  echo "<th>SubTask</th>";
+                  echo "<th>SubTask(Task",$_GET['taskid'],")</th>";
                   echo "<th>Description</th>";
                 echo "</tr>";
               echo "</thead>";
@@ -175,7 +175,7 @@
               echo "<table id = 'item'>";
               echo "<thead>";
                 echo "<tr>";
-                  echo "<th>item</th>";
+                  echo "<th>item(subTask",$_GET['subtaskid'],")</th>";
                   echo "<th>Description</th>";               
                   echo "<th colspan='2'>Homework</th>";
                 echo "</tr>";
@@ -223,7 +223,7 @@
                 echo "<table id = 'item'>";
                 echo "<thead>";
                   echo "<tr>";
-                    echo "<th>item</th>";
+                    echo "<th>item(Task",$_GET['taskid'],")</th>";
                     echo "<th>Description</th>";
                     echo "<th colspan='2'>Homework</th>";
                   echo "</tr>";
