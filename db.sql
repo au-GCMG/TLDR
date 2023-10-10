@@ -42,7 +42,7 @@ CREATE TABLE sys_item(
 CREATE TABLE sys_Instructor(
     id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
     licence varchar(10),
-    mdi varchar(10)    
+    mdi varchar(10) UNIQUE   
 ) AUTO_INCREMENT = 1;
 
 CREATE TABLE sys_SALicence(
