@@ -2,7 +2,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="author" content="Shansong Huang" />
-    <meta name="description" content="TLDR student" />
+    <meta name="description" content="TLDR student overview" />
     <link rel = "stylesheet", type="text/css", href="styles/student.css">
     <script src="scripts/studentMenu.js" defer></script>
     <title>Student</title>
@@ -29,10 +29,7 @@
           }
         }
         mysqli_free_result($result);
-        //mysqli_close($conn);
-        //$totalCompleted = 2500;
-        //$daytimeCompleted = "1000";
-        //$nighttimeCompleted = "233";
+        //Obtain all data about student(logbook payment etc)
         require_once "inc/student_overview.php";
     ?>
    

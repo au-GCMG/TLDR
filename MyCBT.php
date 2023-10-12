@@ -9,6 +9,7 @@
   </head>
   <body>
     <?php
+    //js function that homework signed by student
     define("DB_HOST1", "localhost");
     define("DB_NAME1", "tldr");
     define("DB_USER1", "dbadmin");
@@ -42,6 +43,7 @@
     
     
     <?php
+    //user's information who login----Instructor
         session_start();
         $email = $_SESSION['email'];
         require_once "inc/dbconn.inc.php";
@@ -62,8 +64,10 @@
         }
         mysqli_free_result($result);       
     ?>
+    
     <div id = "unitArea">
       <?php
+      //Units of CBT
          $sql = "SELECT * FROM sys_unit";
          $result = mysqli_query($conn, $sql);
          if($result)
@@ -95,6 +99,7 @@
     </div>
     <div id = "taskArea">
       <?php
+      //Task of CBT
         if(isset($_GET['unitid']))
         {          
           $sql = "SELECT * FROM sys_task where unitid ='".$_GET['unitid']."'";

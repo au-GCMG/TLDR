@@ -2,13 +2,14 @@
   <head>
     <meta charset="utf-8" />
     <meta name="author" content="Shansong Huang" />
-    <meta name="description" content="TLDR QSD" />
+    <meta name="description" content="TLDR Instructor to student's modules" />
     <link rel = "stylesheet", type="text/css", href="styles/student_info.css">
     <link rel = "stylesheet", type="text/css", href="styles/instructor.css">      
     <title>STUDENT-INFO</title>
   </head>
   <body>
   <script type = "text/javascript">
+    //Call different modules by buttons
     function nextToLogbook(sl, ls)
     {
       var url= "logbook.php?studentL=" + sl;
@@ -30,7 +31,8 @@
       window.open(url);
     }
   </script>
-    <?php      
+    <?php  
+        //user's information who login----Instructor    
         session_start();
         $email = $_SESSION['email'];
         require_once "inc/dbconn.inc.php";
@@ -57,9 +59,10 @@
     
     <div id = "studentDetails">
         <?php
+            //Get student's licence with parameter in URL($_GET)
             if(isset($_GET['studentL']))
             {
-                $licence = base64_decode($_GET['studentL']);
+                $licence = base64_decode($_GET['studentL']);//decode the parameter(sensitive information-licence)
                 //Get student's information 
                 $sql = "SELECT * FROM User where licence = '$licence'";
                 $result = mysqli_query($conn, $sql);
@@ -140,7 +143,7 @@
                         echo "<br>";    
                         echo "<br>";
                         echo "<div>";
-                          echo "<form id = 'buttonArea'>";
+                          echo "<form id = 'buttonArea'>";//buttons to different moduals
                             echo ('<input type = "button"  onclick="nextToLogbook(\''.base64_encode($licence).'\',\''.$loginstyle.'\')" id = "logbook" class = "instructorButton" value="Logbook" style = "background-color: green;"><br><br>');
                             echo ('<input type = "button"  onclick="nextToCBT(\''.base64_encode($licence).'\')" id = "cbt" class = "instructorButton" value="CBT" style = "background-color: orangered;"><br><br>');
                             echo ('<input type = "button"  onclick="nextToAssessment(\''.base64_encode($licence).'\')" id = "ass" class = "instructorButton" value="Assessment" style = "background-color: whitesmoke;"><br><br>');
@@ -151,17 +154,9 @@
                 }
                 mysqli_free_result($result);
             }
-            //echo "<p>".base64_decode($_GET["id"])."</p>";
-            //echo "<p>".$_GET["new"]."</p>";
           mysqli_close($conn);
         ?>
-
-
-        
-      
     </div>
     </div>
-    
-
   </body>
 </html>

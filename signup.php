@@ -94,7 +94,7 @@
                         else
                         {
                             $row = mysqli_fetch_assoc($resultSA);
-                            if($row['style'] != "L")
+                            if($row['style'] != "L")// student must be L plate licence.
                             {
                                 echo"<a id = 'error'>Your licence is NOT a Leaning Plate ! You don't need to learn.<br>Please contact to 000<br>The page will be return after 5 seconds.</a>";
                                 header("Refresh:5; login.html");
@@ -159,6 +159,7 @@
                     return;
                 }               
             }
+            //save the user's information into database
             $sql = "INSERT INTO User (firstname,surname,password,gender,dob,address,suburb,state,post,email,tel,mobile,licence,sc,expiry,held,mdi,completed,style,code) VALUES";
             $sql.= "('{$firstname}', '{$surname}', '{$password}','{$gender}','{$dob}','{$address}','{$suburb}','{$state}','{$postcode}','{$email}','{$tel}','{$mobile}','{$DL}','{$sc}','{$expiry}','{$held}','{$mdi}','{$complete}','{$style}','{$code}')";
             $result3 = mysqli_query($conn, $sql);

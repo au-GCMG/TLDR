@@ -1,0 +1,118 @@
+#record{
+    background-color: lightgreen;
+    border-color: lightgreen;
+    border-style:solid;
+    width: 20%;
+    height: 90vh;
+    float: left;
+    position: absolute;
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+    line-height: 1px;
+    overflow: auto;
+}
+
+#record li{
+    line-height: 1.5em;
+    list-style: none;
+}
+
+#record li a{
+    text-decoration: none;
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+
+#record li a:hover{
+    color:#1565c0;
+    text-decoration: none;
+}
+
+
+#recordDetails{
+    background-color:lightgrey;
+    border-color: lightgray;
+    border-style:solid;
+    width: 79%;
+    height: 90vh;
+    float: right;
+    position: relative;
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+    line-height: 1px;
+    font-family: 'Courier New', Courier, monospace;
+    
+    
+}
+
+#recordInfo{
+    display:inline;
+    text-align: left;
+    margin: 0 auto;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+#recordRow{
+    width: 100px;
+    height: 35px;
+    font-size:medium;
+    border-radius: 5px;
+    color: white;
+    background-color: limegreen;
+}
+
+
+
+
+
+#govMenuBlock{
+    text-align: center;   
+}
+#govMenu{
+    list-style-type: none;
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-top: 0px;
+    padding-bottom: 10px;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: 0px;
+    margin-bottom: 30px;
+    text-align: center;
+    display:flex;    
+    align-items: center;
+    border-bottom-color: #ddd;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+}
+
+#govMenu.li{
+    padding: 0;  
+    margin: 0;
+}
+
+
+#govMenu li a{
+    text-decoration: none;
+    margin-right: 15px;
+    display: block;
+    float: left;    
+    color: black;
+    font-size: large;
+}
+
+#govMenu li a:hover{
+    color: #1565c0;
+}
+
+.selected{
+    color: #1565c0;
+    font-weight: bold;
+}
+.red{
+    color: red;
+}
+

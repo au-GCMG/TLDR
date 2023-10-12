@@ -10,7 +10,6 @@
   <?php
     require_once "inc/dbconn.inc.php";
     $username = strtoupper($_POST["userName"]);
-    //$password = $_POST["userPassword"];
     $password = md5($_POST["userPassword"]);
     
     $sql = "SELECT * FROM User where email = '".$username."'";
@@ -28,10 +27,13 @@
                 {
                     $row = mysqli_fetch_assoc($result);
                     $style = $row['style'];
-
+                    
+                    //this is a global variables, it is the email which belong to the user who login.
                     session_start();
                     $_SESSION['email'] = $username;
                     
+                    //According to different style to different module.
+                    //As a instructor or QSD, must be choose a student.
                     switch($style)
                     {
                         case "STUDENT":
@@ -42,7 +44,6 @@
                             break;
                         case "QSD":
                             header("location: search_student.php");
-                            //header("location: qsd.php");
                             break;
                         case "GOVERNMENT":
                             header("location: government.php");
@@ -56,13 +57,7 @@
                     mysqli_close($conn);
                     header("Refresh:3; login.html");
                 }
-            }           
-            /*
-            while($row = mysqli_fetch_assoc($result))
-            {                
-                echo  $row['firstname'];
             }
-            */
         }
         else
         {
@@ -72,10 +67,6 @@
             header("Refresh:3; login.html");
         }
     }
-    
-    //mysqli_free_result($result);
-    //mysqli_close($conn);
-
 ?>
 
   </body>

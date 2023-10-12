@@ -1,4 +1,8 @@
 <?php
+    //Author: Shansong Huang
+    //TLDR student overview details Page
+    
+    //overview's details
     $totalCompleted = 0;
     $daytimeCompleted = 0;
     $nighttimeCompleted = 0;
@@ -7,6 +11,7 @@
     $nighttimeNosign = 0;
 
     //extract the data from logbook database(recordgreen)
+    //daytime and signed by student
     $sql = "SELECT SUM(duration) AS durations FROM recordgreen where studentL = '{$licence}' and studentSignature = 1 and qsdSignature = 1 and startTime < '18:00:00'";
     $result1 = mysqli_query($conn, $sql);
     if($result1)
@@ -23,6 +28,7 @@
     }
     mysqli_free_result($result1);
 
+    //night time and signed by student in logbook
     $sql = "SELECT SUM(duration) AS durations FROM recordgreen where studentL = '{$licence}' and studentSignature = 1 and qsdSignature = 1 and startTime >= '18:00:00'";
     $result2 = mysqli_query($conn, $sql);
     if($result1)
@@ -39,6 +45,7 @@
     }
     mysqli_free_result($result2);
 
+    //daytime and no sign by stduent
     $sql = "SELECT SUM(duration) AS durations FROM recordgreen where studentL = '{$licence}' and studentSignature = 0 and qsdSignature = 1 and startTime < '18:00:00'";
     $result3 = mysqli_query($conn, $sql);
     if($result3)
@@ -55,6 +62,7 @@
     }
     mysqli_free_result($result3);
 
+    //nighttime and no signed by student
     $sql = "SELECT SUM(duration) AS durations FROM recordgreen where studentL = '{$licence}' and studentSignature = 0 and qsdSignature = 1 and startTime >= '18:00:00'";
     $result4 = mysqli_query($conn, $sql);
     if($result4)
@@ -106,6 +114,7 @@
     $daytimeRemaining = 3600 - $daytimeCompleted;
     $nighttimeRemaining = 900 - $nighttimeCompleted;
 
+    //keep to display 0.00
     if(empty($totalPaid))
     {
       $totalPaid =0.00;
