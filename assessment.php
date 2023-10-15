@@ -1,7 +1,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="author" content="Shansong Huang" />
+    <meta name="author" content="JIAJIE TANG & Shansong Huang" />
     <meta name="description" content="TLDR ASSESSMENT" />
     <link rel = "stylesheet", type="text/css", href="styles/assessment.css">      
     <title>ASSESSMENT</title>
@@ -14,17 +14,21 @@
         $sql = "SELECT * FROM User where email = '{$email}'";
         $result = mysqli_query($conn, $sql);
         $userlicence = "";
-        $firstname = "";
         $loginstyle = "";
+        $mdi = '';
+        $userfirstname = "";
+        $usersurname = "";
         if($result)
         {
           if(mysqli_num_rows($result) > 0)
           {
             $row = mysqli_fetch_assoc($result);
             $userlicence = $row['licence'];
-            $firstname = $row['firstname'];
+            $userfirstname = $row['firstname'];
+            $usersurname = $row['surname'];
             $loginstyle = $row['style'];
-            echo "<h2>Welcome $firstname [$userlicence] -- $loginstyle</h2>";
+            $mdi = $row['mdi']; // mdi for sign off and assessment items
+            echo "<h2>Welcome $userfirstname [$userlicence] -- $loginstyle</h2>";
           }
         }
         mysqli_free_result($result);
@@ -123,15 +127,18 @@
                         echo "</div>";
                         echo "<hr><br>";
 
-                        //add detail of assessment,instead of 'finance_detail.php' and put the php's file into the folder of inc
-                        //require_once "inc/finance_detail.php";
+                        echo "<div id ='detail'>";
+                        require_once "inc/cbta_detail.php";
+                        echo "</div>";
                     }
                 }
-                mysqli_free_result($result);
+                
             }
           mysqli_close($conn);
         ?>
-      </div>
+    </div>
+
+
     </div>
 
 

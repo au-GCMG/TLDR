@@ -120,6 +120,52 @@ CREATE TABLE homeworkcompletion (
     studentsign2 BOOLEAN
 );
 
+CREATE TABLE taskAssessment (
+    AssessmentID VARCHAR(255) PRIMARY KEY,
+    Taskid int,
+    AssessmentDescription TEXT
+);
+
+CREATE TABLE taskAssessmentItem (
+    Taskid int,
+    AssessmentItemID VARCHAR(255),
+    AssessmentID VARCHAR(255),
+    ItemDescription TEXT,
+    ItemAdditionalInfo INT DEFAULT NULL,
+    RequiredSignCount INT NOT NULL,
+    PRIMARY KEY (AssessmentItemID, AssessmentID)
+);
+
+CREATE TABLE ItemAdditionalInfoOptions (
+    OptionID INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    AssessmentItemID VARCHAR(255),
+    OptionText TEXT NOT NULL
+); 
+
+
+CREATE TABLE Tasksignoff (
+    licence VARCHAR(255),
+    AssessmentID VARCHAR(255),
+    taskid int,
+    DATE DATE,
+    InstructorSignature VARCHAR(255),
+    StudentSignature VARCHAR(255),
+    mdi varchar(10),
+    PRIMARY KEY (licence, AssessmentID)
+);
+
+CREATE TABLE ItemCompletion (
+    licence VARCHAR(255),
+    AssessmentItemID VARCHAR(255),
+    AssessmentID VARCHAR(255),
+    SignCount INT NOT NULL DEFAULT 0,
+    SignCompletion  INT DEFAULT NULL,
+    mdi varchar(10),
+    PRIMARY KEY (licence, AssessmentItemID, AssessmentID)
+);
+
+
+
 CREATE user IF NOT EXISTS dbadmin@localhost;
 GRANT all privileges ON TLDR.User TO dbadmin@localhost;
 
@@ -149,6 +195,18 @@ GRANT all privileges ON TLDR.sys_item TO dbadmin@localhost;
 
 CREATE user IF NOT EXISTS dbadmin@localhost;
 GRANT all privileges ON TLDR.homeworkcompletion TO dbadmin@localhost;
+
+CREATE user IF NOT EXISTS dbadmin@localhost;
+GRANT all privileges ON TLDR.taskAssessment TO dbadmin@localhost;
+CREATE user IF NOT EXISTS dbadmin@localhost;
+GRANT all privileges ON TLDR.taskAssessmentItem TO dbadmin@localhost;
+CREATE user IF NOT EXISTS dbadmin@localhost;
+GRANT all privileges ON TLDR.ItemAdditionalInfoOptions TO dbadmin@localhost;
+CREATE user IF NOT EXISTS dbadmin@localhost;
+GRANT all privileges ON TLDR.Tasksignoff TO dbadmin@localhost;
+CREATE user IF NOT EXISTS dbadmin@localhost;
+GRANT all privileges ON TLDR.ItemCompletion TO dbadmin@localhost;
+
 
 -- Example
 
@@ -302,3 +360,65 @@ INSERT INTO sys_item (taskid, subtaskid, itemNO, description) VALUES (8, NULL, '
 INSERT INTO sys_item (taskid, subtaskid, itemNO, description) VALUES (8, NULL, '(e)', '(e) Demonstrate Task 5 - stop and go (using the park brake)');
 INSERT INTO sys_item (taskid, subtaskid, itemNO, description) VALUES (8, NULL, '(f)', '(f) Demonstrate Task 6 - gear changing (up and down)');
 INSERT INTO sys_item (taskid, subtaskid, itemNO, description) VALUES (8, NULL, '(g)', '(g) Demonstrate Task 7 - control of the steering (forward and reverse)');
+
+
+INSERT INTO taskAssessment (AssessmentID, taskid, AssessmentDescription) VALUES ('A001',1, 'Cabin drill and controls');
+INSERT INTO taskAssessment (AssessmentID, taskid, AssessmentDescription) VALUES ('A002',2, 'Starting up and shutting dwon the engine');
+INSERT INTO taskAssessment (AssessmentID, taskid, AssessmentDescription) VALUES ('A003',3,'Moving off from kerb' );
+INSERT INTO taskAssessment (AssessmentID, taskid, AssessmentDescription) VALUES ('A004',4,'Stopping and securing the vehicle' );
+INSERT INTO taskAssessment (AssessmentID, taskid, AssessmentDescription) VALUES ('A005',5,'Stop and go(using the park brake)' );
+INSERT INTO taskAssessment (AssessmentID, taskid, AssessmentDescription) VALUES ('A006',6,'Gear changing(up and down)' );
+INSERT INTO taskAssessment (AssessmentID, taskid, AssessmentDescription) VALUES ('A007',7,'Steering(forward and reverse)' );
+INSERT INTO taskAssessment (AssessmentID, taskid, AssessmentDescription) VALUES ('A008',8,'Review all basic driving procedures' );
+
+
+-- task 1
+INSERT INTO taskAssessmentItem (taskid, AssessmentItemID, AssessmentID, ItemDescription, RequiredSignCount) VALUES (1, 'AI001', 'A001', 'Cabin drill', 2);
+INSERT INTO taskAssessmentItem (taskid, AssessmentItemID, AssessmentID, ItemDescription, ItemAdditionalInfo, RequiredSignCount) VALUES (1, 'AI002', 'A001', 'Group 1 control name', 1, 2);
+INSERT INTO taskAssessmentItem (taskid, AssessmentItemID, AssessmentID, ItemDescription, ItemAdditionalInfo, RequiredSignCount) VALUES (1, 'AI003', 'A001', 'Group 2 control name', 1, 2);
+INSERT INTO taskAssessmentItem (taskid, AssessmentItemID, AssessmentID, ItemDescription, ItemAdditionalInfo, RequiredSignCount) VALUES (1, 'AI004', 'A001', 'Group 3 control name', 1, 2);
+-- task 2
+
+INSERT INTO taskAssessmentItem (taskid, AssessmentItemID, AssessmentID, ItemDescription, RequiredSignCount) VALUES (2, 'AI005', 'A002', '(1) Starting the engine', 2);
+INSERT INTO taskAssessmentItem (taskid, AssessmentItemID, AssessmentID, ItemDescription, RequiredSignCount) VALUES (2, 'AI006', 'A002', '(2) Shutting down the engine', 2);
+-- task 3
+INSERT INTO taskAssessmentItem (taskid, AssessmentItemID, AssessmentID, ItemDescription, RequiredSignCount) VALUES (3, 'AI007', 'A003', 'Move off from the kerb', 2);
+-- task 4
+INSERT INTO taskAssessmentItem (taskid, AssessmentItemID, AssessmentID, ItemDescription, RequiredSignCount) VALUES (4, 'AI008', 'A004', '(1) Stop the vehicle (including slowing)', 2);
+INSERT INTO taskAssessmentItem (taskid, AssessmentItemID, AssessmentID, ItemDescription, RequiredSignCount) VALUES (4, 'AI009', 'A004', '(2) Secure the vehicle to prevent rolling (a prolonged stop)', 2);
+-- task 5
+INSERT INTO taskAssessmentItem (taskid, AssessmentItemID, AssessmentID, ItemDescription, RequiredSignCount) VALUES (5, 'AI010', 'A005', 'Stop and go (using the park brake)', 2);
+-- task 6
+INSERT INTO taskAssessmentItem (taskid, AssessmentItemID, AssessmentID, ItemDescription, RequiredSignCount) VALUES (6, 'AI011', 'A006', '(1) Change gears up and down (100% accurate and a minimum of 5 demonstrations)', 5);
+INSERT INTO taskAssessmentItem (taskid, AssessmentItemID, AssessmentID, ItemDescription, RequiredSignCount) VALUES (6, 'AI012', 'A006', '(2) Accurately select appropriate gears for varying speeds (100% accuracy and a minimum of 5 demonstrations)', 5);
+
+-- task 7
+INSERT INTO taskAssessmentItem (taskid, AssessmentItemID, AssessmentID, ItemDescription, RequiredSignCount) VALUES (7,'AI013', 'A007', 'Demonstration 1 (1) Steer in a forward direction (minimum of 4 left and 4 right turns) 100% (left)', 4);
+INSERT INTO taskAssessmentItem (taskid, AssessmentItemID, AssessmentID, ItemDescription, RequiredSignCount) VALUES (7,'AI014', 'A007', 'Demonstration 1 (1) Steer in a forward direction (minimum of 4 left and 4 right turns)100% (right)', 4);
+INSERT INTO taskAssessmentItem (taskid, AssessmentItemID, AssessmentID, ItemDescription, RequiredSignCount) VALUES (7,'AI015', 'A007', 'Demonstration 1 (2) Steer in reverse (minimum of 1 left reverse)', 1);
+INSERT INTO taskAssessmentItem (taskid, AssessmentItemID, AssessmentID, ItemDescription, RequiredSignCount) VALUES (7,'AI016', 'A007', 'Demonstration 2 (1) Steer in a forward direction (minimum of 4 left and 4 right turns) 100% (left)', 4);
+INSERT INTO taskAssessmentItem (taskid, AssessmentItemID, AssessmentID, ItemDescription, RequiredSignCount) VALUES (7,'AI017', 'A007', 'Demonstration 2 (1) Steer in a forward direction (minimum of 4 left and 4 right turns)100% (right)', 4);
+INSERT INTO taskAssessmentItem (taskid, AssessmentItemID, AssessmentID, ItemDescription, RequiredSignCount) VALUES (7,'AI018', 'A007', 'Demonstration 2 (2) Steer in reverse (minimum of 1 left reverse)', 1);
+-- task 8
+INSERT INTO taskAssessmentItem (taskid, AssessmentItemID, AssessmentID, ItemDescription, RequiredSignCount) VALUES (8,'AI019', 'A008', 'Task 1 cabin drill and controls', 1);
+INSERT INTO taskAssessmentItem (taskid, AssessmentItemID, AssessmentID, ItemDescription, RequiredSignCount) VALUES (8,'AI020', 'A008', 'Task 2 starting up and shutting down the engine', 2);
+INSERT INTO taskAssessmentItem (taskid, AssessmentItemID, AssessmentID, ItemDescription, RequiredSignCount) VALUES (8,'AI021', 'A008', 'Task 3 moving off from the kerb', 1);
+INSERT INTO taskAssessmentItem (taskid, AssessmentItemID, AssessmentID, ItemDescription, RequiredSignCount) VALUES (8,'AI022', 'A008', 'Task 4 stopping and securing the vehicle', 2);
+INSERT INTO taskAssessmentItem (taskid, AssessmentItemID, AssessmentID, ItemDescription, RequiredSignCount) VALUES (8,'AI023', 'A008', 'Task 5 stop and go (using the park brake)', 1);
+INSERT INTO taskAssessmentItem (taskid, AssessmentItemID, AssessmentID, ItemDescription, RequiredSignCount) VALUES (8,'AI024', 'A008', 'Task 6 gear changing (up and down)', 2);
+INSERT INTO taskAssessmentItem (taskid, AssessmentItemID, AssessmentID, ItemDescription, RequiredSignCount) VALUES (8,'AI025', 'A008', 'Task 7 steering (forward and reverse)', 2);
+
+-- task1 options
+INSERT INTO ItemAdditionalInfoOptions (OptionID, AssessmentItemID, OptionText) VALUES (1, 'AI002', 'Brake');
+INSERT INTO ItemAdditionalInfoOptions (OptionID, AssessmentItemID, OptionText) VALUES (2, 'AI002', 'Accelerator');
+INSERT INTO ItemAdditionalInfoOptions (OptionID, AssessmentItemID, OptionText) VALUES (3, 'AI002', 'Steering wheel');
+INSERT INTO ItemAdditionalInfoOptions (OptionID, AssessmentItemID, OptionText) VALUES (4, 'AI002', 'Gear lever (including autos)');
+INSERT INTO ItemAdditionalInfoOptions (OptionID, AssessmentItemID, OptionText) VALUES (5, 'AI003', 'Clutch (Manuals only)');
+INSERT INTO ItemAdditionalInfoOptions (OptionID, AssessmentItemID, OptionText) VALUES (6, 'AI003', 'Park brake');
+INSERT INTO ItemAdditionalInfoOptions (OptionID, AssessmentItemID, OptionText) VALUES (7, 'AI003', 'Warning device');
+INSERT INTO ItemAdditionalInfoOptions (OptionID, AssessmentItemID, OptionText) VALUES (8, 'AI003', 'Signals');
+INSERT INTO ItemAdditionalInfoOptions (OptionID, AssessmentItemID, OptionText) VALUES (9, 'AI004', 'Heater/demister');
+INSERT INTO ItemAdditionalInfoOptions (OptionID, AssessmentItemID, OptionText) VALUES (10, 'AI004', 'Wipers and washers');
+INSERT INTO ItemAdditionalInfoOptions (OptionID, AssessmentItemID, OptionText) VALUES (11, 'AI004', 'Warning lights (any 3)');
+INSERT INTO ItemAdditionalInfoOptions (OptionID, AssessmentItemID, OptionText) VALUES (12, 'AI004', 'Vehicle lights');
+INSERT INTO ItemAdditionalInfoOptions (OptionID, AssessmentItemID, OptionText) VALUES (13, 'AI004', 'Gauges');

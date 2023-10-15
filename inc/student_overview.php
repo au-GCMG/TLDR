@@ -125,47 +125,6 @@
     }
     $totalAmount = $totalUnpaid + $totalPaid;
 
-    
-    //extract baseic data form CBT database(sys_unit, sys_task, sys_item)
-    $totalUnit = 0;
-    $totalTask = 0;
-    $totalItem = 0;
-    //sys_unit
-    $sql = "select count(*) AS totalNO from sys_unit";
-    $result7 = mysqli_query($conn, $sql);
-    if($result7)
-    {
-      if(mysqli_num_rows($result7) > 0)
-      {
-        $row = mysqli_fetch_assoc($result7);
-        $totalUnit = $row['totalNO'];
-      }      
-    }
-    mysqli_free_result($result7);
-    //sys_task    
-    $sql = "select count(*) AS totalNO from sys_task";
-    $result8 = mysqli_query($conn, $sql);
-    if($result8)
-    {
-      if(mysqli_num_rows($result8) > 0)
-      {
-        $row = mysqli_fetch_assoc($result8);
-        $totalTask = $row['totalNO'];
-      }      
-    }
-    mysqli_free_result($result8);
-    //sys_item       
-    $sql = "select count(*) AS totalNO from sys_item";
-    $result9 = mysqli_query($conn, $sql);
-    if($result9)
-    {
-      if(mysqli_num_rows($result9) > 0)
-      {
-        $row = mysqli_fetch_assoc($result9);
-        $totalItem = $row['totalNO'];
-      }      
-    }
-    mysqli_free_result($result9);
     mysqli_close($conn);
 
 ?>

@@ -16,6 +16,7 @@
     define("DB_PASS1", "");    
     function Iscompleted($itemid, $studentl)
     {
+      //count the number of signature
       $numberofcompleted = 0;
       $conn1 = @mysqli_connect(DB_HOST1, DB_USER1, DB_PASS1, DB_NAME1);
       $sql = "SELECT * FROM homeworkcompletion WHERE itemid = '".$itemid."' and licence = '".$studentl."'";
@@ -85,6 +86,7 @@
             while ($row = mysqli_fetch_assoc($result))
             {
               echo "<tr>";
+              //sent the unitid in the URL
               echo "<th><a href = MyCBT.php?unitid=",$row['id'],">",$row['unitNO'],"</a></th>";
               echo "<th>",$row['description'],"</th>";
               echo "</tr>";
@@ -102,6 +104,7 @@
       //Task of CBT
         if(isset($_GET['unitid']))
         {          
+          //According to the variable which collect from the URL to search the task
           $sql = "SELECT * FROM sys_task where unitid ='".$_GET['unitid']."'";
           $result = mysqli_query($conn, $sql);
           if($result)
@@ -119,6 +122,7 @@
               while($row = mysqli_fetch_assoc($result))
               {
                 echo "<tr>";
+                //send the taskid in the URL
                 echo "<th><a href = MyCBT.php?unitid=",$row['unitid'],"&taskid=",$row['id'],">",$row['taskNO'],"</a></th>";
                 echo "<th>",$row['description'],"</th>";
                 echo "</tr>";
@@ -153,6 +157,7 @@
               while($row = mysqli_fetch_assoc($result))
               {
                 echo "<tr>";
+                //send the subtaskid in the URL if the task has subtask.
                 echo "<th><a href = MyCBT.php?unitid=",$_GET['unitid'],"&taskid=",$_GET['taskid'],"&subtaskid=",$row['id'],">",$row['subtaskNO'],"</a></th>";
                 echo "<th>",$row['subtaskname'],"</th>";
                 echo "</tr>";
@@ -194,6 +199,7 @@
                 switch (Iscompleted($row['id'], $licence))
                 {
                   case 0:
+                    //link to signature's homepage
                     echo "<th><a href = 'inc/homework_sign.php?unitid=".$_GET['unitid']."&taskid=".$_GET['taskid']."&subtaskid=".$_GET['subtaskid']."&itemid=".$row['id']."&sign=2&l=".base64_encode($licence)."'>Sign</a></th>";
                     echo "<th><a href = 'inc/homework_sign.php?unitid=".$_GET['unitid']."&taskid=".$_GET['taskid']."&subtaskid=".$_GET['subtaskid']."&itemid=".$row['id']."&sign=2&l=".base64_encode($licence)."'>Sign</a></th>";   
                     break;
@@ -269,9 +275,5 @@
         mysqli_close($conn);
       ?>
     </div>
-
-
-
-
   </body>
 </html>

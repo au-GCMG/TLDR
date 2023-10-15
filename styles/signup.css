@@ -34,8 +34,9 @@ label {
 }
 
 #form{   
-    position:absolute;
-    left: 35%;
+    /* position:absolute; */
+    float: left;
+    margin: 0 auto;
 }
 
 #contactForm {
@@ -105,3 +106,25 @@ label {
     text-align: center;
 }
 
+body {
+    background-image: url("../image/cars.jpg");
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+  }
+
+  
+#form {
+    width: auto; 
+    margin: 0 auto; 
+    background-color: white; 
+    padding: 5; 
+    border: 1px solid #ddd; 
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); 
+    position: absolute; 
+    float: left;
+    top: 100%; 
+    left: 25%; 
+  }

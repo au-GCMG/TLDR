@@ -3,22 +3,25 @@ html {
     font-size: 14px;
     color: #263238;
     text-align: center;
+   
 }
+
 
 h1 {    
     margin-bottom: 0px;
-    font-family: 'Times New Roman', Times, serif;
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 36px;
     font-weight: bold;
     color: #000;
-    
 }
 
 h2{
+    color: orange;
     position: relative;
     margin-top: 10px;
     font-size: 16px;
     font-weight: normal;
+    font-weight: bold;
 }
 
 
@@ -28,10 +31,19 @@ label {
     font-weight: bold;  
 }
 
-#content{
-    position:relative
-}
 
+#content{
+    position:relative;
+}
+    
+body {
+    background-image: url("../image/car2.png");
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+  }
 
 #contactForm {
     margin-left: 10px;
@@ -77,3 +89,16 @@ label {
 #submitS:hover {
     background-color: #0d47a1;
 }
+
+#contactform {
+    width: auto; 
+    margin: 0 auto; 
+    background-color: white; 
+    padding: 20 10 10 10;
+    border: 1px solid #ddd; 
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); 
+    /* position: absolute;  */
+    float: left;
+    top: 85%; 
+    left: 25%; 
+  }

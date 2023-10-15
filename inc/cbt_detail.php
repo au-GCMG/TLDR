@@ -7,6 +7,7 @@
   </head>
   <body>
     <?php
+    //detemine the item whether signed.
     define("DB_HOST1", "localhost");
     define("DB_NAME1", "tldr");
     define("DB_USER1", "dbadmin");
@@ -57,6 +58,7 @@
             while ($row = mysqli_fetch_assoc($result))
             {
               echo "<tr>";
+              //send student's licence, unitid in the URL
               echo "<th><a href = cbt.php?studentL=",base64_encode($licence),"&unitid=",$row['id'],">",$row['unitNO'],"</a></th>";
               echo "<th>",$row['description'],"</th>";
               echo "</tr>";
@@ -234,15 +236,7 @@
             mysqli_free_result($result);
           }          
         }
-          
-        //mysqli_free_result($result);
-        // }
-        //mysqli_close($conn);
       ?>
     </div>
-
-
-
-
   </body>
 </html>

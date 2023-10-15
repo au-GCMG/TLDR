@@ -14,8 +14,7 @@
         $sql = "SELECT * FROM User where email = '{$email}'";
         $result = mysqli_query($conn, $sql);
         $userlicence = "";
-        $userfirstname = "";
-        $usersurname = "";
+        $firstname = "";
         $loginstyle = "";
         if($result)
         {
@@ -23,10 +22,9 @@
           {
             $row = mysqli_fetch_assoc($result);
             $userlicence = $row['licence'];
-            $userfirstname = $row['firstname'];
+            $firstname = $row['firstname'];
             $loginstyle = $row['style'];
-            $usersurname = $row['surname'];
-            echo "<h2>Welcome $userfirstname [$userlicence] -- $loginstyle</h2>";
+            echo "<h2>Welcome $firstname [$userlicence] -- $loginstyle</h2>";
           }
         }
         mysqli_free_result($result);
@@ -132,7 +130,6 @@
           mysqli_close($conn);
         ?>
       </div>
-
     </div>
 
 

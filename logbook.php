@@ -108,7 +108,7 @@
 
                         
                         $completed = $row['completed'];
-                        if($completed == 0)
+                        if($completed == 0)//no signed
                         {
                             echo "<form  action = 'logbook_add.php' method='post'>";
                             echo "<input type = 'hidden' name='studentL' value ='".$licence."'>";

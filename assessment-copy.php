@@ -2,9 +2,9 @@
   <head>
     <meta charset="utf-8" />
     <meta name="author" content="Shansong Huang" />
-    <meta name="description" content="TLDR CBT" />
-    <link rel = "stylesheet", type="text/css", href="styles/cbt.css">      
-    <title>CBT</title>
+    <meta name="description" content="TLDR ASSESSMENT" />
+    <link rel = "stylesheet", type="text/css", href="styles/assessment.css">      
+    <title>ASSESSMENT</title>
   </head>
   <body>
     <?php      
@@ -14,8 +14,7 @@
         $sql = "SELECT * FROM User where email = '{$email}'";
         $result = mysqli_query($conn, $sql);
         $userlicence = "";
-        $userfirstname = "";
-        $usersurname = "";
+        $firstname = "";
         $loginstyle = "";
         if($result)
         {
@@ -23,10 +22,9 @@
           {
             $row = mysqli_fetch_assoc($result);
             $userlicence = $row['licence'];
-            $userfirstname = $row['firstname'];
+            $firstname = $row['firstname'];
             $loginstyle = $row['style'];
-            $usersurname = $row['surname'];
-            echo "<h2>Welcome $userfirstname [$userlicence] -- $loginstyle</h2>";
+            echo "<h2>Welcome $firstname [$userlicence] -- $loginstyle</h2>";
           }
         }
         mysqli_free_result($result);
@@ -113,7 +111,8 @@
                         {
                             echo "<form  action = 'finance_add.php' method='post'>";
                             echo "<input type = 'hidden' name='studentL' value ='".$licence."'>";
-                            echo "<input type = 'hidden' name='userL' value = '".$userlicence."'>";                           
+                            echo "<input type = 'hidden' name='userL' value = '".$userlicence."'>";
+                            //echo "<input id = 'newInvoice' type = 'submit' name = 'newInvoice' value = 'Add...'>";
                             echo "</form>";
                         }
                         else
@@ -123,16 +122,16 @@
                         
                         echo "</div>";
                         echo "<hr><br>";
-                        echo "<div id ='detail'>";
-                        require_once "inc/cbt_detail.php";
-                        echo "</div>";
+
+                        //add detail of assessment,instead of 'finance_detail.php' and put the php's file into the folder of inc
+                        //require_once "inc/finance_detail.php";
                     }
                 }
+                mysqli_free_result($result);
             }
           mysqli_close($conn);
         ?>
       </div>
-
     </div>
 
 
